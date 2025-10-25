@@ -1,235 +1,237 @@
-# Contributing Guide
+# Contributing to LLM Collaboration Framework
 
-> **Philosophy**: Rapid iteration, human-led development, AI assistance.
-
----
-
-## 🚀 Quick Start
-
-**For AI Assistants**: Read [`START_HERE_AI.md`](START_HERE_AI.md) first.
-
-**For Humans**: Read [`README.md`](README.md), then this file.
+> Thank you for your interest in improving this framework!
 
 ---
 
-## 👥 Roles & Authority
+## 🎯 Types of Contributions
 
-### Human (PM) - Decision Maker & Product Manager
+We welcome:
 
-**Authority**:
-- ✅ Selects issues to work on
-- ✅ Approves all designs, architectures, and technical approaches
-- ✅ Reviews and accepts/rejects code
-- ✅ Controls development pace and priorities
-- ✅ Final say on all major decisions
+### 1. Bug Reports
+- Unclear documentation
+- Broken examples
+- Confusing instructions
+- Issues with specific LLMs
 
-**Responsibilities**:
-- Provide clear task direction
-- Review AI proposals and diffs
-- Approve commits
-- Guide product direction
+### 2. Feature Suggestions
+- New template files
+- Additional workflow patterns
+- LLM-specific optimizations
+- Tools/platform integrations
 
-### [AI_TOOL_1] (PC) - Senior Developer (AI Assistant)
+### 3. Documentation Improvements
+- Clearer explanations
+- More examples
+- Translation to other languages
+- Better diagrams
 
-**Authority**:
-- ✅ Propose solutions (2-3 options with pros/cons)
-- ✅ Implement after approval
-- ✅ Handle implementation details (after approach approved)
-- ✅ Update documentation
-- ✅ Manage GitHub issues and commits (with PM approval)
-
-**Constraints**:
-- ❌ NEVER: Select issues, start coding, make major decisions, or commit without approval
-- ❌ NEVER: Assume requirements or technical approach
-- ✅ ALWAYS: Wait for approval, propose options, show diffs first
-
-**Full rules**: See [`docs/llm-rules.md`](docs/llm-rules.md)
-
-### [AI_TOOL_2] (Mobile) - Design Consultant (AI Assistant)
-
-**Authority**:
-- ✅ Brainstorm with PM
-- ✅ Discuss designs and architecture
-- ✅ Has GitHub read access (check project state)
-
-**Constraints**:
-- ❌ Cannot write to GitHub directly
-- ❌ Cannot implement code
-- ✅ Summaries go to `MOBILE_UPDATES.md` for PC to sync
-
-**Note**: Mobile and PC are independent instances (no shared context)
+### 4. Example Projects
+- Share your success story
+- Add your project to Example Projects section
+- Write case studies
 
 ---
 
-## 📊 Decision Authority Matrix
+## 📝 How to Contribute
 
-| Decision | Who Decides | Requires Approval |
-|----------|-------------|-------------------|
-| Which issue to work on | Human PM | - |
-| Tech approach | Human PM | ✅ |
-| Architecture | Human PM | ✅ |
-| DB schema | Human PM | ✅ |
-| API design | Human PM | ✅ |
-| Implementation details | AI (after approach approved) | ❌ |
-| Code style, variable names | AI | ❌ |
-| Documentation updates | AI | ❌ |
+### Reporting Issues
 
----
+1. Check [existing issues](https://github.com/elfenlieds7/llm-collaboration-framework/issues) first
+2. Create new issue with:
+   - Clear title
+   - Detailed description
+   - Steps to reproduce (if applicable)
+   - Your environment (OS, LLM used, etc.)
 
-## 🔄 Development Workflow
+### Suggesting Improvements
 
-### 1. Issue Selection (Human)
+1. Open an issue first to discuss
+2. Explain:
+   - What problem it solves
+   - Why current approach is insufficient
+   - Proposed solution
+   - Potential drawbacks
 
-```
-Human: "Let's work on #X"
-AI: [Reads issue] "Got it. Summarizing..."
-```
+### Submitting Changes
 
-### 2. Design Proposal (AI → Human)
-
-```
-AI: "I see 2-3 approaches:
-
-    A. [Approach A]
-       Pros: ...
-       Cons: ...
-
-    B. [Approach B]
-       Pros: ...
-       Cons: ...
-
-    Which approach do you prefer?"
-Human: "Go with B"
-```
-
-### 3. Approval (Human → AI)
-
-```
-Human: "Go ahead"
-AI: "Starting implementation..."
-```
-
-### 4. Implementation (AI, supervised by Human)
-
-AI implements, shows progress. Human reviews diffs in editor.
-
-### 5. Review & Commit (Human approval required)
-
-```
-AI: "Done. Here's the diff: [shows changes]
-     Ready to commit?"
-Human: [Reviews diff] "Yes, commit it"
-AI: [Commits with proper message]
-```
+1. Fork the repository
+2. Create a feature branch: `git checkout -b feature/your-feature-name`
+3. Make your changes
+4. Test your changes:
+   - Verify all placeholders still work
+   - Check markdown formatting
+   - Test with at least one LLM
+5. Commit with clear message: `feat: Add X` or `docs: Improve Y`
+6. Push to your fork
+7. Create Pull Request
 
 ---
 
-## 📏 Issue Size Management
+## ✅ Contribution Guidelines
 
-**CRITICAL**: Every issue must complete in single 200K token session.
+### For Documentation
 
-### Size Limits
+- **Be concise**: Remember, every word costs tokens
+- **Use bullets**: Over paragraphs
+- **Use tables**: For comparisons
+- **One example max**: Per concept
+- **Keep placeholders**: Like `[PROJECT_NAME]`, `[AI_TOOL_1]`
 
-| Size | Time | Action |
-|------|------|--------|
-| ✅ Small | 1-4h | Perfect |
-| ⚠️ Medium | 4-6h | Monitor context |
-| ❌ Large | >6h | **MUST SPLIT** |
+### For Templates
 
-**Details**: See [`docs/llm-rules.md#issue-size-management`](docs/llm-rules.md#issue-size-management)
+- **Maintain structure**: Don't break the tiered approach (🔴🟡🟢⚪)
+- **Test thoroughly**: With at least 2 different LLMs
+- **Preserve universality**: Don't add tool-specific code
+- **Update SETUP_GUIDE.md**: If adding new placeholders
 
-### AI Responsibility
+### For Code/Scripts
 
-When encountering >6h issues:
-1. Alert PM immediately
-2. Propose split into 2-4h sub-issues
-3. Wait for approval before starting
+- **Keep it simple**: This is a template, not production code
+- **Add comments**: Explain what it does
+- **Make it universal**: Should work on Windows/Mac/Linux
 
 ---
 
-## 📱 Mobile ↔ PC Sync
+## 🧪 Testing Your Changes
 
-### Workflow
+Before submitting:
 
-```
-1. Human discusses with [AI_TOOL_2] (Mobile)
-2. Mobile summarizes decisions
-3. Human pastes summary to MOBILE_UPDATES.md
-4. [AI_TOOL_1] (PC) reads, executes actions, syncs to GitHub
-5. PC marks as synced with date
+1. **Placeholder test**:
+   - All placeholders still marked clearly
+   - SETUP_GUIDE.md documents all placeholders
+
+2. **LLM test**:
+   - Feed START_HERE_AI.md to an LLM
+   - Verify it understands in < 5 minutes
+   - Test with different LLMs if possible
+
+3. **Markdown test**:
+   - Preview in GitHub-style markdown renderer
+   - Check all links work
+   - Verify formatting is correct
+
+4. **Setup test**:
+   - Follow SETUP_GUIDE.md in a test project
+   - Verify all steps work
+   - Check for missing instructions
+
+---
+
+## 📋 Pull Request Checklist
+
+- [ ] Tested with at least one LLM
+- [ ] All markdown renders correctly
+- [ ] Placeholders documented in SETUP_GUIDE.md
+- [ ] Follows existing style (concise, bullets, tables)
+- [ ] No tool-specific dependencies added
+- [ ] Examples are clear and minimal
+- [ ] README.md updated if needed
+- [ ] Commit messages are clear
+
+---
+
+## 🎨 Style Guide
+
+### Writing Style
+
+**Good**:
+```markdown
+## Quick Start
+
+1. Copy files
+2. Replace placeholders
+3. Tell AI: "Read START_HERE_AI.md"
 ```
 
-**Template**: See [`MOBILE_UPDATES.md`](MOBILE_UPDATES.md)
+**Bad**:
+```markdown
+## Getting Started
 
-**PC Actions**: Create issues, update docs, create ADRs, commit changes
+In this section, we will walk through the process of getting started
+with the framework. First, you'll need to copy all the necessary files
+to your project directory. After that, you should replace all the
+placeholder values...
+```
 
----
+### Commit Messages
 
-## 📝 Writing Guidelines
+Format: `<type>: <description>`
 
-**Be concise** - every word costs tokens. New sessions re-read all docs.
+Types:
+- `feat`: New feature or template
+- `docs`: Documentation only
+- `fix`: Bug fix
+- `refactor`: Code restructure
+- `test`: Test-related
+- `chore`: Maintenance
 
-| Prefer | Avoid |
-|--------|-------|
-| Bullets | Paragraphs |
-| Tables | Long text |
-| 1 example | Multiple examples |
-| Direct | Conversational |
-
----
-
-## 🔨 Commit Convention
-
-Format: `<type>(#issue): description`
-
-**Types**: `feat`, `fix`, `docs`, `refactor`, `test`, `chore`
-
-**Always** reference issue number.
-
-**Examples**:
-- `feat(#123): Add authentication module`
-- `fix(#45): Correct validation logic`
-- `docs(#67): Update API documentation`
+Examples:
+- `feat: Add Python-specific quick-ref commands`
+- `docs: Clarify placeholder replacement steps`
+- `fix: Correct broken link in SETUP_GUIDE`
 
 ---
 
-## 🧪 Testing
+## 🏆 Adding Your Project to Examples
 
-- Critical paths must have tests
-- Run tests before marking done
-- Document test approach in issue
+If you've used this framework successfully:
 
----
+1. Fork the repo
+2. Edit `README.md`
+3. Add your project under "Example Projects":
 
-## 📚 Documentation
+```markdown
+### [Your Project Name](github-link)
+**Description**: Brief description
+- **Stack**: Your tech stack
+- **AI Tools**: Which AIs you used
+- **Scale**: Project size/complexity
+- **Results**: Key benefits
 
-**Update immediately when**:
-- Architecture changes → `docs/architecture.md`
-- Add dependency → `README.md`, `[DEPENDENCY_FILE]`
-- Change API → `docs/api.md`
-- Add config → `[CONFIG_FILE]`
+**Key benefits realized**:
+- Benefit 1
+- Benefit 2
+- Benefit 3
+```
 
----
-
-## 📖 Additional Resources
-
-| Document | Purpose |
-|----------|---------|
-| [`START_HERE_AI.md`](START_HERE_AI.md) | AI onboarding entry point |
-| [`docs/llm-rules.md`](docs/llm-rules.md) | Complete rules for AI |
-| [`docs/quick-ref.md`](docs/quick-ref.md) | Command cheatsheet |
-| [`docs/architecture.md`](docs/architecture.md) | Technical architecture |
-| [`README.md`](README.md) | Project overview |
-| [`MOBILE_UPDATES.md`](MOBILE_UPDATES.md) | Mobile sync template |
+4. Submit PR with title: `docs: Add [Your Project] to examples`
 
 ---
 
-## ❓ Questions?
+## 🤝 Community Guidelines
 
-Create GitHub issue with `question` label.
+- **Be respectful**: Everyone is learning
+- **Be constructive**: Criticism should be helpful
+- **Be patient**: Maintainers are volunteers
+- **Be collaborative**: Help others in issues/discussions
 
 ---
 
-**Last Updated**: [DATE]
-**For AI**: Read `START_HERE_AI.md` first
-**For Humans**: This document covers the workflow
+## 📞 Questions?
+
+- **General questions**: [Open a discussion](https://github.com/elfenlieds7/llm-collaboration-framework/discussions)
+- **Bug reports**: [Create an issue](https://github.com/elfenlieds7/llm-collaboration-framework/issues)
+- **Feature ideas**: [Create an issue](https://github.com/elfenlieds7/llm-collaboration-framework/issues) with "enhancement" label
+
+---
+
+## 🎓 Learning Resources
+
+New to contributing to open source?
+
+- [First Contributions Guide](https://github.com/firstcontributions/first-contributions)
+- [How to Write a Git Commit Message](https://chris.beams.io/posts/git-commit/)
+- [Markdown Guide](https://www.markdownguide.org/)
+
+---
+
+## 📄 License
+
+By contributing, you agree that your contributions will be licensed under the MIT License.
+
+---
+
+**Thank you for helping improve this framework!**
+
+Every contribution, no matter how small, helps other developers build better AI collaboration workflows.

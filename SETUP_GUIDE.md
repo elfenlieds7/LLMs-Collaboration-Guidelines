@@ -14,7 +14,7 @@ This template package provides a complete framework for **human-led, multi-agent
 - `START_HERE_AI.md` - Universal LLM entry point
 - `docs/llm-rules.md` - Complete rules for AI assistants
 - `docs/quick-ref.md` - Command reference
-- `CONTRIBUTING.md` - Workflow documentation
+- `CONTRIBUTING_TEMPLATE.md` - Workflow documentation
 - `MOBILE_UPDATES.md` - Mobile ↔ PC sync template
 - `README_AI_SECTION.md` - README template
 
@@ -35,7 +35,7 @@ This template package provides a complete framework for **human-led, multi-agent
 ```bash
 # Copy all template files to your project root
 cp llm-collaboration-template/START_HERE_AI.md YOUR_PROJECT/
-cp llm-collaboration-template/CONTRIBUTING.md YOUR_PROJECT/
+cp llm-collaboration-template/CONTRIBUTING_TEMPLATE.md YOUR_PROJECT/
 cp llm-collaboration-template/MOBILE_UPDATES.md YOUR_PROJECT/
 
 # Copy docs
@@ -127,7 +127,7 @@ After setup, your project should have:
 ```
 YOUR_PROJECT/
 ├── START_HERE_AI.md          ✅ LLM entry point
-├── CONTRIBUTING.md            ✅ Workflow guide
+├── CONTRIBUTING_TEMPLATE.md            ✅ Workflow guide
 ├── MOBILE_UPDATES.md          ✅ Mobile sync template
 ├── README.md                  ✅ (with AI Onboarding section added)
 └── docs/
@@ -157,11 +157,11 @@ YOUR_PROJECT/
 ### For Different AI Tools
 
 #### Using OpenAI GPT-4
-- Replace `Claude Code` → `GPT-4` in CONTRIBUTING.md
-- Replace `Claude Mobile` → `ChatGPT` in CONTRIBUTING.md
+- Replace `Claude Code` → `GPT-4` in CONTRIBUTING_TEMPLATE.md
+- Replace `Claude Mobile` → `ChatGPT` in CONTRIBUTING_TEMPLATE.md
 
 #### Using Google Gemini
-- Replace `Claude Code` → `Gemini` in CONTRIBUTING.md
+- Replace `Claude Code` → `Gemini` in CONTRIBUTING_TEMPLATE.md
 - May need to adjust context limits if Gemini has different limits
 
 #### Using Multiple Tools

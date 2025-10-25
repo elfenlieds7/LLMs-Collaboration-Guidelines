@@ -27,7 +27,7 @@ llm-collaboration-template/
 ├── README.md                 ← You are here
 ├── SETUP_GUIDE.md           ← Detailed setup instructions
 ├── START_HERE_AI.md         ← Universal LLM entry point
-├── CONTRIBUTING.md          ← Workflow documentation
+├── CONTRIBUTING_TEMPLATE.md          ← Workflow documentation
 ├── MOBILE_UPDATES.md        ← Mobile ↔ PC sync template
 ├── README_AI_SECTION.md     ← Template for your README
 └── docs/
@@ -62,7 +62,7 @@ cp -r llm-collaboration-template/* YOUR_PROJECT/
 ```bash
 # 1. Copy templates
 cp llm-collaboration-template/START_HERE_AI.md YOUR_PROJECT/
-cp llm-collaboration-template/CONTRIBUTING.md YOUR_PROJECT/
+cp llm-collaboration-template/CONTRIBUTING_TEMPLATE.md YOUR_PROJECT/
 cp llm-collaboration-template/MOBILE_UPDATES.md YOUR_PROJECT/
 cp -r llm-collaboration-template/docs YOUR_PROJECT/
 
@@ -86,7 +86,7 @@ cp -r llm-collaboration-template/docs YOUR_PROJECT/
 - `MOBILE_UPDATES.md` - Pending syncs
 
 **🟢 Tier 2** - AS NEEDED (reference)
-- `README.md`, `docs/architecture.md`, `docs/quick-ref.md`, `CONTRIBUTING.md`
+- `README.md`, `docs/architecture.md`, `docs/quick-ref.md`, `CONTRIBUTING_TEMPLATE.md`
 
 **⚪ Tier 3** - SKIP (human-only)
 - Deployment scripts, credentials, etc.
@@ -155,6 +155,38 @@ PC: Reads, creates issues, updates docs, commits
 
 ---
 
+## 🏆 Example Projects
+
+Projects successfully using this framework:
+
+### [POE2 Craft Advisor](https://github.com/elfenlieds7/poe2-craft-advisor)
+**Description**: AI-powered crafting advisor for Path of Exile 2
+- **Stack**: Python, LangGraph, PostgreSQL, Vector DB
+- **AI Tools**: Claude Mobile (design) + Claude Code (implementation)
+- **Scale**: ~36 GitHub issues, multi-phase development
+- **Results**: Structured multi-agent collaboration, efficient context usage
+
+**Key benefits realized**:
+- 5-min AI onboarding vs previous ad-hoc approach
+- Clean separation between design discussions and implementation
+- All work tracked in < 6h issues
+- Successful mobile ↔ PC sync workflow
+
+---
+
+### Your Project Here
+
+**Using this framework?** [Submit a PR](https://github.com/elfenlieds7/llm-collaboration-framework/pulls) to add your project!
+
+**Include**:
+- Project name and GitHub link
+- Brief description
+- Tech stack
+- Which AI tools you're using
+- Key results or benefits
+
+---
+
 ## 📊 Comparison
 
 | Approach | Onboarding | Control | Context Mgmt | Multi-AI |
@@ -214,7 +246,7 @@ PC: Reads, creates issues, updates docs, commits
 | `START_HERE_AI.md` | Entry point | AI assistants |
 | `docs/llm-rules.md` | Complete rules | AI assistants |
 | `docs/quick-ref.md` | Commands | AI during work |
-| `CONTRIBUTING.md` | Workflow | Humans & AI |
+| `CONTRIBUTING_TEMPLATE.md` | Workflow | Humans & AI |
 | `MOBILE_UPDATES.md` | Sync template | AI (PC) |
 | `README_AI_SECTION.md` | README template | Humans setting up |
 

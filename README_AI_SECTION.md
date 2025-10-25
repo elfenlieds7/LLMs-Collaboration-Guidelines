@@ -30,7 +30,7 @@
 | 🟢 **As needed** | `README.md` (this) | Project overview | Reference |
 | 🟢 **As needed** | `docs/architecture.md` | Technical details | During implementation |
 | 🟢 **As needed** | `docs/quick-ref.md` | Command cheatsheet | Quick lookup |
-| 🟢 **As needed** | `CONTRIBUTING.md` | Workflow details | Reference |
+| 🟢 **As needed** | `CONTRIBUTING_TEMPLATE.md` | Workflow details | Reference |
 | ⚪ **Skip** | [Add human-only docs] | Human operations | Not for AI |
 
 ### 🎯 Key Principles

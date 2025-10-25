@@ -35,7 +35,7 @@ Stop reading when you understand enough to start working.
 - `README.md` - Project overview
 - `docs/architecture.md` - Technical details
 - `docs/quick-ref.md` - Command cheatsheet
-- `CONTRIBUTING.md` - Detailed workflow
+- `CONTRIBUTING_TEMPLATE.md` - Detailed workflow
 
 #### ⚪ Tier 3: SKIP (human-only documentation)
 - [Add project-specific human-only docs here]
@@ -115,7 +115,7 @@ When starting a new session:
 | Core rules & constraints | `docs/llm-rules.md` |
 | Project overview | `README.md` |
 | System architecture | `docs/architecture.md` |
-| Workflow details | `CONTRIBUTING.md` |
+| Workflow details | `CONTRIBUTING_TEMPLATE.md` |
 | Command reference | `docs/quick-ref.md` |
 | Mobile sync tasks | `MOBILE_UPDATES.md` |
 | Open issues | `gh issue list` |
