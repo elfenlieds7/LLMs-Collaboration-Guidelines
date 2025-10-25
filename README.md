@@ -176,7 +176,7 @@ Projects successfully using this framework:
 
 ### Your Project Here
 
-**Using this framework?** [Submit a PR](https://github.com/elfenlieds7/llm-collaboration-framework/pulls) to add your project!
+**Using this framework?** [Submit a PR](https://github.com/elfenlieds7/multi-agent-and-human-guidelines/pulls) to add your project!
 
 **Include**:
 - Project name and GitHub link

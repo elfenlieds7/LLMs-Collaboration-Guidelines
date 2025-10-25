@@ -37,7 +37,7 @@ We welcome:
 
 ### Reporting Issues
 
-1. Check [existing issues](https://github.com/elfenlieds7/llm-collaboration-framework/issues) first
+1. Check [existing issues](https://github.com/elfenlieds7/multi-agent-and-human-guidelines/issues) first
 2. Create new issue with:
    - Clear title
    - Detailed description
@@ -210,9 +210,9 @@ If you've used this framework successfully:
 
 ## 📞 Questions?
 
-- **General questions**: [Open a discussion](https://github.com/elfenlieds7/llm-collaboration-framework/discussions)
-- **Bug reports**: [Create an issue](https://github.com/elfenlieds7/llm-collaboration-framework/issues)
-- **Feature ideas**: [Create an issue](https://github.com/elfenlieds7/llm-collaboration-framework/issues) with "enhancement" label
+- **General questions**: [Open a discussion](https://github.com/elfenlieds7/multi-agent-and-human-guidelines/discussions)
+- **Bug reports**: [Create an issue](https://github.com/elfenlieds7/multi-agent-and-human-guidelines/issues)
+- **Feature ideas**: [Create an issue](https://github.com/elfenlieds7/multi-agent-and-human-guidelines/issues) with "enhancement" label
 
 ---
 
