@@ -117,17 +117,29 @@ AI (Assistant)
 
 **Result**: Human maintains control, AI accelerates work
 
-### 4. Mobile ↔ PC Sync
+### 4. Bidirectional Mobile ↔ PC Sync
 
+**Direction 1: Mobile → PC** (Discussions & Findings)
 ```
-Mobile: Design discussions, brainstorming
+Mobile: Design discussions, brainstorming, app testing
    ↓
 Human: Pastes summary to MOBILE_UPDATES.md
    ↓
 PC: Reads, creates issues, updates docs, commits
 ```
 
-**Result**: Seamless multi-agent collaboration
+**Direction 2: PC → Mobile** (Task Assignment)
+```
+PC: Creates [MOBILE] GitHub issue with instructions
+   ↓
+Mobile: Reads issue, guides user, collects data
+   ↓
+Mobile: Updates MOBILE_UPDATES.md with findings
+   ↓
+PC: Reads findings, completes implementation
+```
+
+**Result**: Seamless bidirectional multi-agent collaboration across environments
 
 ---
 
