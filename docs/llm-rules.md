@@ -15,6 +15,8 @@
 
 ## 📋 Session Startup Checklist
 
+### For Desktop/PC AI
+
 **Every new session, run in order**:
 
 1. Check `MOBILE_UPDATES.md` for pending syncs (process immediately if found)
@@ -26,6 +28,16 @@
    git log -5 --oneline
    ```
 3. Wait for PM to assign task
+
+### For Mobile AI
+
+**Every new session**:
+
+1. Check for `[MOBILE]` issues or `mobile-task` label assigned to you
+2. Read issue instructions carefully
+3. Confirm what you CAN/CANNOT do in mobile environment
+4. Guide user through required steps
+5. Document findings in `MOBILE_UPDATES.md`
 
 ---
 
@@ -153,11 +165,11 @@ X-Yh
 
 ## 📱 Mobile ↔ PC Sync Protocol
 
-### When You See Content in MOBILE_UPDATES.md
+### Direction 1: Mobile → PC (Discussions & Findings)
 
-**Process immediately**:
+**When Desktop AI sees content in MOBILE_UPDATES.md**:
 
-1. ✅ Read and understand decisions
+1. ✅ Read and understand decisions/findings
 2. ✅ Execute action items (create issues, update docs, etc.)
 3. ✅ Update GitHub
 4. ✅ Mark section: "✅ Synced to GitHub on YYYY-MM-DD"
@@ -168,6 +180,42 @@ X-Yh
    ```
 
 **Template in `MOBILE_UPDATES.md`** - follow it exactly.
+
+### Direction 2: PC → Mobile (Task Assignment)
+
+**When Desktop AI needs Mobile to do platform-specific work**:
+
+1. ✅ Create GitHub issue with `[MOBILE]` prefix in title
+2. ✅ Add label `mobile-task` (create label if doesn't exist)
+3. ✅ In issue body, clearly specify:
+   - What Mobile CAN do (screenshots, app interactions, HTTP capture, guide user, edit MOBILE_UPDATES.md)
+   - What Mobile CANNOT do (file creation, git operations, terminal commands)
+   - Expected deliverable (usually: entry in MOBILE_UPDATES.md with specific template)
+4. ✅ Provide step-by-step instructions
+5. ✅ Include template for MOBILE_UPDATES.md entry
+
+**Example scenarios**:
+- iOS app API reverse engineering
+- Mobile app testing
+- Screenshot analysis and UI feedback
+- On-device debugging assistance
+
+### For Mobile AI: Processing [MOBILE] Issues
+
+**When you see issue with `[MOBILE]` prefix or `mobile-task` label**:
+
+1. ✅ Read issue carefully
+2. ✅ Guide user through mobile operations (app usage, HTTP capture, etc.)
+3. ✅ Analyze screenshots/data user provides
+4. ✅ Update `MOBILE_UPDATES.md` with findings using provided template
+5. ✅ Comment on issue with progress updates
+6. ⏸ Let Desktop AI handle file creation, testing, commits
+
+**Your environment capabilities**:
+- ✅ CAN: Browse web, analyze images, guide user, edit text files
+- ❌ CANNOT: Create project files, run terminal commands, git operations
+
+**Success criteria**: MOBILE_UPDATES.md contains all requested information in the specified format
 
 ---
 

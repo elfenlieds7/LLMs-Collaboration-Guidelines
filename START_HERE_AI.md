@@ -79,6 +79,8 @@ You: [Commit with reference to #X]
 
 ## 📋 First Session Checklist
 
+### For Desktop/PC Environment (Claude PC, GPT-4, etc.)
+
 When starting a new session:
 
 1. ✅ Read this file (done)
@@ -91,6 +93,23 @@ When starting a new session:
    ```
 4. ⏸ **WAIT** - Let PM tell you which issue to work on
 5. ✅ Read `docs/llm-rules.md` before starting work
+
+### For Mobile Environment (Claude Mobile, ChatGPT Mobile, etc.)
+
+When starting a new session:
+
+1. ✅ Read this file (done)
+2. ✅ Check for mobile-specific tasks:
+   - GitHub: Look for issues with `[MOBILE]` prefix or `mobile-task` label
+   - Or ask user: "Any mobile tasks assigned?"
+3. ✅ **Key capabilities you have**:
+   - ✅ Browse web, read docs
+   - ✅ Analyze screenshots/images
+   - ✅ Guide user through mobile app operations
+   - ✅ Edit text files (like MOBILE_UPDATES.md)
+   - ❌ NO file creation, NO git operations, NO terminal commands
+4. ✅ **Your deliverable**: Update `MOBILE_UPDATES.md` with findings
+5. ⏸ Let desktop AI complete technical tasks (file creation, testing, commits)
 
 ---
 
