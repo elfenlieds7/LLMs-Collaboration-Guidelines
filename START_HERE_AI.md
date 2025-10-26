@@ -29,7 +29,6 @@ Stop reading when you understand enough to start working.
 
 #### 🟡 Tier 1: BEFORE WORKING (read when PM assigns task)
 - `docs/llm-rules.md` - Core rules (3 min)
-- `MOBILE_UPDATES.md` - Check for pending syncs (30 sec)
 
 #### 🟢 Tier 2: AS NEEDED (reference during work)
 - `README.md` - Project overview
@@ -84,31 +83,34 @@ You: [Commit with reference to #X]
 When starting a new session:
 
 1. ✅ Read this file (done)
-2. ✅ Check `MOBILE_UPDATES.md` for pending work
-3. ✅ Check status:
+2. ✅ Check status:
    ```bash
    gh issue list --state open --limit 5
    git status
    git log -3 --oneline
    ```
-4. ⏸ **WAIT** - Let PM tell you which issue to work on
-5. ✅ Read `docs/llm-rules.md` before starting work
+3. ⏸ **WAIT** - Let PM tell you which issue to work on
+4. ✅ Read `docs/llm-rules.md` before starting work
 
-### For Mobile Environment (Claude Mobile, ChatGPT Mobile, etc.)
+### For Mobile Environment (GitHub Mobile Copilot, etc.)
 
 When starting a new session:
 
 1. ✅ Read this file (done)
-2. ✅ Check for mobile-specific tasks:
-   - GitHub: Look for issues with `[MOBILE]` prefix or `mobile-task` label
-   - Or ask user: "Any mobile tasks assigned?"
+2. ✅ Check for assigned mobile tasks:
+   - Look for issues with `[MOBILE]` prefix + `mobile-task` label
+   - Read issue description for complete context
 3. ✅ **Key capabilities you have**:
+   - ✅ Read GitHub issues/PRs (if using GitHub Copilot)
+   - ✅ Post comments on issues
    - ✅ Browse web, read docs
    - ✅ Analyze screenshots/images
    - ✅ Guide user through mobile app operations
-   - ✅ Edit text files (like MOBILE_UPDATES.md)
    - ❌ NO file creation, NO git operations, NO terminal commands
-4. ✅ **Your deliverable**: Update `MOBILE_UPDATES.md` with findings
+4. ✅ **Your workflow**:
+   - Work directly in issue thread
+   - Post findings/progress as issue comments
+   - Use provided comment template in issue
 5. ⏸ Let desktop AI complete technical tasks (file creation, testing, commits)
 
 ---
@@ -136,7 +138,7 @@ When starting a new session:
 | System architecture | `docs/architecture.md` |
 | Workflow details | `CONTRIBUTING_TEMPLATE.md` |
 | Command reference | `docs/quick-ref.md` |
-| Mobile sync tasks | `MOBILE_UPDATES.md` |
+| Mobile tasks | `gh issue list --label mobile-task` |
 | Open issues | `gh issue list` |
 | Recent changes | `git log -5` |
 | Current work | `gh issue list --label in-progress` |
@@ -147,9 +149,8 @@ When starting a new session:
 
 **Next Steps**:
 1. Read `docs/llm-rules.md` (3 min)
-2. Check `MOBILE_UPDATES.md` (30 sec)
-3. Run first session checklist commands above
-4. Tell PM: "Ready. I've reviewed the docs and project status. What should I work on?"
+2. Run first session checklist commands above
+3. Tell PM: "Ready. I've reviewed the docs and project status. What should I work on?"
 
 **Don't**:
 - ❌ Pick an issue yourself
@@ -164,12 +165,12 @@ When starting a new session:
 
 - **Context efficiency**: New sessions reload docs. Keep them concise.
 - **200K limit**: Issues must complete in single session (< 6h work).
-- **Mobile sync**: Always check `MOBILE_UPDATES.md` first - may have urgent tasks.
+- **Mobile tasks**: Check `gh issue list --label mobile-task` for mobile-specific work.
 - **When stuck**: Ask PM, don't assume.
 - **Before commit**: Always show diff and wait for "yes".
 
 ---
 
-**Last Updated**: [DATE]
+**Last Updated**: 2025-10-27
 **Compatibility**: All LLMs (Claude, GPT-4, Gemini, Llama, etc.)
 **Maintainer**: Human PM (not AI-editable without approval)

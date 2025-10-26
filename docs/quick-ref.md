@@ -7,8 +7,8 @@
 ## 🔍 Session Startup
 
 ```bash
-# Check for mobile sync tasks
-cat MOBILE_UPDATES.md
+# Check for mobile tasks
+gh issue list --label mobile-task
 
 # Check open issues
 gh issue list --state open --limit 10
@@ -223,9 +223,9 @@ Monitor file reads:
 # Recover state
 git log -10
 gh issue list --label in-progress
+gh issue list --label mobile-task
 git status
 git diff
-cat MOBILE_UPDATES.md
 
 # Check what was being worked on
 gh issue view $(gh issue list --label in-progress --json number --jq '.[0].number')
@@ -323,13 +323,15 @@ gh issue comment 123 --body "⚠️ BLOCKER: Need X before proceeding"
 # Switch to different issue
 ```
 
-### Processing Mobile Sync
+### Processing Mobile Task
 
 ```bash
-cat MOBILE_UPDATES.md               # Read content
-# ... create issues, update docs ...
-git add MOBILE_UPDATES.md docs/
-git commit -m "feat: Sync mobile discussion (MOBILE_UPDATES.md)"
+# Mobile now works in issue threads
+gh issue view <mobile-issue-number>  # Read mobile's findings
+# ... implement based on findings ...
+git add .
+git commit -m "feat: Implement X based on mobile findings (#issue)"
+gh issue close <mobile-issue-number>
 git push
 ```
 
@@ -342,13 +344,13 @@ START_HERE_AI.md          → LLM entry point
 docs/llm-rules.md         → Core rules
 docs/quick-ref.md         → This file
 docs/architecture.md      → Technical design
-MOBILE_UPDATES.md         → Mobile sync tasks
 CONTRIBUTING.md           → Workflow details
 README.md                 → Project overview
+.github/ISSUE_TEMPLATE/   → Issue templates (mobile-task, etc.)
 ```
 
 ---
 
-**Last Updated**: [DATE]
+**Last Updated**: 2025-10-27
 **Use Case**: Quick command lookup during work
 **Full Rules**: See `docs/llm-rules.md`

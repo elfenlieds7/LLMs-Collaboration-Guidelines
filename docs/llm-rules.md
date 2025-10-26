@@ -19,25 +19,24 @@
 
 **Every new session, run in order**:
 
-1. Check `MOBILE_UPDATES.md` for pending syncs (process immediately if found)
-2. Check project status:
+1. Check project status:
    ```bash
    gh issue list --state open --limit 5
    gh issue list --label in-progress
    git status
    git log -5 --oneline
    ```
-3. Wait for PM to assign task
+2. Wait for PM to assign task
 
 ### For Mobile AI
 
 **Every new session**:
 
-1. Check for `[MOBILE]` issues or `mobile-task` label assigned to you
-2. Read issue instructions carefully
-3. Confirm what you CAN/CANNOT do in mobile environment
-4. Guide user through required steps
-5. Document findings in `MOBILE_UPDATES.md`
+1. Check for issues with `[MOBILE]` prefix + `mobile-task` label
+2. Read issue description - contains all context you need
+3. Work in issue thread - post findings as comments
+4. Use comment template provided in issue
+5. Guide user through mobile operations (screenshots, app testing, etc.)
 
 ---
 
@@ -163,59 +162,71 @@ X-Yh
 
 ---
 
-## 📱 Mobile ↔ PC Sync Protocol
+## 📱 Mobile Workflow (Issue-Based)
 
-### Direction 1: Mobile → PC (Discussions & Findings)
+### Overview
 
-**When Desktop AI sees content in MOBILE_UPDATES.md**:
+Mobile and Desktop AIs sync through GitHub issue threads (no separate sync file needed).
 
-1. ✅ Read and understand decisions/findings
-2. ✅ Execute action items (create issues, update docs, etc.)
-3. ✅ Update GitHub
-4. ✅ Mark section: "✅ Synced to GitHub on YYYY-MM-DD"
-5. ✅ Keep content for history (don't delete)
-6. ✅ Commit with reference:
-   ```bash
-   git commit -m "feat: Implement X based on mobile discussion (MOBILE_UPDATES.md)"
-   ```
+**Why issue-based?**
+- ✅ Single source of truth (all context in issue)
+- ✅ Better traceability (full history in thread)
+- ✅ Native GitHub integration (Mobile can read issues via GitHub mobile apps)
+- ✅ Simpler (no extra sync files)
+- ✅ Automatic notifications
 
-**Template in `MOBILE_UPDATES.md`** - follow it exactly.
+### For Desktop AI: Creating Mobile Tasks
 
-### Direction 2: PC → Mobile (Task Assignment)
+**When you need Mobile to do platform-specific work**:
 
-**When Desktop AI needs Mobile to do platform-specific work**:
-
-1. ✅ Create GitHub issue with `[MOBILE]` prefix in title
-2. ✅ Add label `mobile-task` (create label if doesn't exist)
-3. ✅ In issue body, clearly specify:
-   - What Mobile CAN do (screenshots, app interactions, HTTP capture, guide user, edit MOBILE_UPDATES.md)
-   - What Mobile CANNOT do (file creation, git operations, terminal commands)
-   - Expected deliverable (usually: entry in MOBILE_UPDATES.md with specific template)
-4. ✅ Provide step-by-step instructions
-5. ✅ Include template for MOBILE_UPDATES.md entry
+1. ✅ Create issue with `[MOBILE]` prefix
+2. ✅ Add label `mobile-task`
+3. ✅ In description, provide:
+   - **Complete context** (Mobile may not easily access other project files)
+   - Clear task list
+   - Mobile's capabilities reminder
+   - Comment template for deliverables
+4. ✅ Use issue template if available (`.github/ISSUE_TEMPLATE/mobile-task.md`)
 
 **Example scenarios**:
-- iOS app API reverse engineering
-- Mobile app testing
-- Screenshot analysis and UI feedback
+- Mobile app API reverse engineering
+- App testing and screenshot analysis
 - On-device debugging assistance
+- HTTP packet capture guidance
 
-### For Mobile AI: Processing [MOBILE] Issues
+### For Mobile AI: Processing Mobile Tasks
 
-**When you see issue with `[MOBILE]` prefix or `mobile-task` label**:
+**When you see `[MOBILE]` issue**:
 
-1. ✅ Read issue carefully
-2. ✅ Guide user through mobile operations (app usage, HTTP capture, etc.)
-3. ✅ Analyze screenshots/data user provides
-4. ✅ Update `MOBILE_UPDATES.md` with findings using provided template
-5. ✅ Comment on issue with progress updates
-6. ⏸ Let Desktop AI handle file creation, testing, commits
+1. ✅ Read issue description (contains all context)
+2. ✅ Guide user through mobile operations:
+   - App navigation and testing
+   - HTTP packet capture (e.g., HTTP Catcher for iOS)
+   - Screenshot analysis
+3. ✅ Post findings as issue comment using provided template
+4. ✅ Update issue labels:
+   - `mobile-task` → `mobile-done-pc-todo` when complete
+   - Add `mobile-blocked` if stuck
+5. ⏸ Let Desktop AI handle file creation, git, terminal work
 
-**Your environment capabilities**:
-- ✅ CAN: Browse web, analyze images, guide user, edit text files
-- ❌ CANNOT: Create project files, run terminal commands, git operations
+**Your environment (e.g., GitHub Mobile Copilot)**:
+- ✅ CAN: Read issues, post comments, browse web, analyze images, guide user
+- ❌ CANNOT: Create files, git operations, terminal commands
 
-**Success criteria**: MOBILE_UPDATES.md contains all requested information in the specified format
+### Label Conventions
+
+| Label | Meaning |
+|-------|---------|
+| `mobile-task` | Assigned to Mobile, not started |
+| `mobile-done-pc-todo` | Mobile complete, Desktop needs to implement |
+| `mobile-blocked` | Mobile hit blocker, needs help |
+
+### Deprecated: MOBILE_UPDATES.md
+
+**Old approach**: Mobile → MOBILE_UPDATES.md → Desktop reads file
+**New approach**: Mobile and Desktop work in same issue thread
+
+If your project still uses MOBILE_UPDATES.md, consider migrating to issue-based workflow for better traceability.
 
 ---
 
@@ -287,9 +298,9 @@ Wait for PM approval before implementing.
 ```bash
 git log -10
 gh issue list --label in-progress
+gh issue list --label mobile-task
 gh issue view <number>
 git status
-cat MOBILE_UPDATES.md
 ```
 
 ### File Organization
@@ -300,7 +311,7 @@ cat MOBILE_UPDATES.md
 | Core rules (this) | `docs/llm-rules.md` |
 | Architecture | `docs/architecture.md` |
 | Workflow details | `CONTRIBUTING.md` |
-| Mobile sync | `MOBILE_UPDATES.md` |
+| Mobile tasks | Issues with `mobile-task` label |
 | Quick commands | `docs/quick-ref.md` |
 
 ---
@@ -318,6 +329,6 @@ cat MOBILE_UPDATES.md
 
 ---
 
-**Last Updated**: [DATE]
+**Last Updated**: 2025-10-27
 **Prev File**: `START_HERE_AI.md`
-**Next Step**: Check `MOBILE_UPDATES.md`, then wait for PM task assignment
+**Next Step**: Wait for PM task assignment

@@ -15,7 +15,7 @@ This template package provides a complete framework for **human-led, multi-agent
 - `docs/llm-rules.md` - Complete rules for AI assistants
 - `docs/quick-ref.md` - Command reference
 - `CONTRIBUTING_TEMPLATE.md` - Workflow documentation
-- `MOBILE_UPDATES.md` - Mobile ↔ PC sync template
+- `templates/ISSUE_TEMPLATE_mobile.md` - Mobile task issue template
 - `README_AI_SECTION.md` - README template
 
 **Key Features**:
@@ -36,10 +36,14 @@ This template package provides a complete framework for **human-led, multi-agent
 # Copy all template files to your project root
 cp llm-collaboration-template/START_HERE_AI.md YOUR_PROJECT/
 cp llm-collaboration-template/CONTRIBUTING_TEMPLATE.md YOUR_PROJECT/
-cp llm-collaboration-template/MOBILE_UPDATES.md YOUR_PROJECT/
 
-# Copy docs
+# Copy docs and templates
 cp -r llm-collaboration-template/docs YOUR_PROJECT/
+cp -r llm-collaboration-template/templates YOUR_PROJECT/
+
+# Optional: Copy mobile issue template to GitHub
+mkdir -p YOUR_PROJECT/.github/ISSUE_TEMPLATE
+cp YOUR_PROJECT/templates/ISSUE_TEMPLATE_mobile.md YOUR_PROJECT/.github/ISSUE_TEMPLATE/mobile-task.md
 ```
 
 ### Step 2: Customize Placeholders
@@ -114,7 +118,7 @@ Create a checklist issue in GitHub:
 - [ ] All files copied and placeholders replaced
 - [ ] README.md has AI Onboarding section
 - [ ] Project-specific commands added to quick-ref.md
-- [ ] Mobile sync works (test with dummy update)
+- [ ] Mobile task labels created (`mobile-task`, `mobile-done-pc-todo`, `mobile-blocked`)
 - [ ] Tested with at least one AI assistant
 ```
 
@@ -127,9 +131,13 @@ After setup, your project should have:
 ```
 YOUR_PROJECT/
 ├── START_HERE_AI.md          ✅ LLM entry point
-├── CONTRIBUTING_TEMPLATE.md            ✅ Workflow guide
-├── MOBILE_UPDATES.md          ✅ Mobile sync template
+├── CONTRIBUTING_TEMPLATE.md  ✅ Workflow guide
 ├── README.md                  ✅ (with AI Onboarding section added)
+├── .github/
+│   └── ISSUE_TEMPLATE/
+│       └── mobile-task.md    ✅ Mobile task template
+├── templates/
+│   └── ISSUE_TEMPLATE_mobile.md  ✅ Template source
 └── docs/
     ├── llm-rules.md          ✅ Core AI rules
     ├── quick-ref.md          ✅ Command reference
@@ -199,25 +207,19 @@ Add to Tier 2 in START_HERE_AI.md.
    - Reading priority (🔴→🟡→🟢→⚪)
    - Where to find information
 
-### Test 2: Mobile Sync Workflow
+### Test 2: Mobile Workflow
 
-1. Write a test update in MOBILE_UPDATES.md:
-   ```markdown
-   ## [2025-10-26] Test Sync
+1. Create a test mobile task issue using the template
+2. Tell Mobile AI (if available): `"Check for mobile tasks"`
+3. Verify workflow:
+   - Mobile reads issue
+   - Mobile posts findings as comment
+   - PC reads comment and acts on it
+   - Issue gets closed
 
-   ### Action Items for PC
-   - [ ] Create test issue: "Test mobile sync"
-
-   ### Status
-   - [ ] Pending PC sync
-   ```
-
-2. Tell PC AI: `"Check MOBILE_UPDATES.md for pending syncs"`
-3. Verify it:
-   - Reads the update
-   - Creates the test issue
-   - Marks as synced
-   - Commits changes
+**Alternative test (PC only)**:
+- Create a `[MOBILE]` issue manually
+- Verify PC recognizes mobile task labels
 
 ### Test 3: Issue Size Management
 
@@ -276,14 +278,15 @@ After setup, you should see:
 2. Tell it: `"Only read 🔴 and 🟡 tiers initially"`
 3. Add: `"Read 🟢 tier only when needed"`
 
-### Mobile sync not working
+### Mobile workflow not working
 
-**Problem**: PC AI doesn't process MOBILE_UPDATES.md
+**Problem**: Mobile AI can't find mobile tasks
 
 **Solution**:
-1. Check PC AI has GitHub write access
-2. Explicitly tell it: `"Check MOBILE_UPDATES.md for pending syncs"`
-3. Make it part of session startup checklist
+1. Verify labels exist: `mobile-task`, `mobile-done-pc-todo`, `mobile-blocked`
+2. Create labels: `gh label create mobile-task --color "FFA500"`
+3. Ensure issues have `[MOBILE]` prefix in title
+4. If using GitHub mobile app, verify Copilot access
 
 ### Issues are too large
 
@@ -316,7 +319,7 @@ After setup, you should see:
 
 1. **Update dates** when docs change
 2. **Keep docs concise** - remove outdated content
-3. **Archive old syncs** in MOBILE_UPDATES.md (> 30 days)
+3. **Close stale mobile issues** (> 30 days)
 4. **Version your templates** if you make significant changes
 
 ---
@@ -363,10 +366,13 @@ After setup:
 
 ## 📝 Version History
 
+- **v1.1** (2025-10-27): Issue-based mobile workflow
+  - Replaced MOBILE_UPDATES.md with issue-based sync
+  - Added mobile task issue template
+  - Improved traceability
 - **v1.0** (2025-10-26): Initial template release
   - Core framework with START_HERE_AI.md
   - Tiered documentation structure
-  - Mobile/PC sync workflow
   - 200K context management
 
 ---

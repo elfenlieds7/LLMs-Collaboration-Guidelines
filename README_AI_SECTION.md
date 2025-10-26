@@ -12,13 +12,12 @@
 ### 🚀 Quick Start
 1. Read [`START_HERE_AI.md`](START_HERE_AI.md) (2 min) - Universal entry point
 2. Read [`docs/llm-rules.md`](docs/llm-rules.md) (3 min) - Core rules
-3. Check [`MOBILE_UPDATES.md`](MOBILE_UPDATES.md) (30 sec) - Pending tasks
-4. Run status commands:
+3. Run status commands:
    ```bash
    gh issue list --state open --limit 5
    git status && git log -3 --oneline
    ```
-5. Wait for PM to assign task
+4. Wait for PM to assign task
 
 ### 📚 Documentation Structure
 
@@ -26,7 +25,6 @@
 |----------|----------|---------|-----------|
 | 🔴 **Start** | `START_HERE_AI.md` | Entry point | First thing |
 | 🟡 **Before work** | `docs/llm-rules.md` | Core rules | Before any task |
-| 🟡 **Before work** | `MOBILE_UPDATES.md` | Check syncs | Every session |
 | 🟢 **As needed** | `README.md` (this) | Project overview | Reference |
 | 🟢 **As needed** | `docs/architecture.md` | Technical details | During implementation |
 | 🟢 **As needed** | `docs/quick-ref.md` | Command cheatsheet | Quick lookup |
@@ -57,11 +55,11 @@ This project uses a unique **human-led** development model with AI assistance:
   - Reviews all code via diff tool before accepting
   - Controls development pace and priorities
 
-- **[AI_TOOL_2] (Mobile)** - Design Consultant (AI Assistant)
-  - Design discussions, architecture decisions, brainstorming
-  - Has GitHub **read** access to check project state
-  - Cannot write to GitHub directly
-  - Summaries go to `MOBILE_UPDATES.md`
+- **[AI_TOOL_2] (Mobile)** - iOS Operations Specialist (AI Assistant)
+  - iOS-specific tasks (app analysis, HTTP capture guidance)
+  - Works in GitHub issue threads (via GitHub mobile app)
+  - Can read issues and post comments
+  - Cannot create files or run git/terminal commands
 
 - **[AI_TOOL_1] (PC)** - Senior Developer (AI Assistant)
   - Proposes solutions with pros/cons
@@ -72,15 +70,19 @@ This project uses a unique **human-led** development model with AI assistance:
 
 - **Important**: Two AI instances are completely independent, no shared context
 
-### Mobile → PC Sync Workflow
+### Mobile ↔ PC Sync Workflow
 
 ```
-Mobile Discussion → Mobile AI summarizes → User pastes to MOBILE_UPDATES.md
+PC creates [MOBILE] issue with complete context + template
                     ↓
-PC AI reads MOBILE_UPDATES.md → Syncs to GitHub (issues, docs, ADRs)
+Mobile reads issue (GitHub mobile app) → Works on task
+                    ↓
+Mobile posts findings as issue comment
+                    ↓
+PC reads comment → Implements technical work → Closes issue
 ```
 
-**See**: `MOBILE_UPDATES.md` for the sync template and `START_HERE_AI.md` for AI onboarding.
+**See**: `.github/ISSUE_TEMPLATE/mobile-task.md` for template and `START_HERE_AI.md` for AI onboarding.
 
 **Management**: GitHub issues as single source of truth
 

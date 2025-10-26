@@ -28,7 +28,8 @@ llm-collaboration-template/
 ├── SETUP_GUIDE.md           ← Detailed setup instructions
 ├── START_HERE_AI.md         ← Universal LLM entry point
 ├── CONTRIBUTING_TEMPLATE.md          ← Workflow documentation
-├── MOBILE_UPDATES.md        ← Mobile ↔ PC sync template
+├── templates/
+│   └── ISSUE_TEMPLATE_mobile.md  ← Mobile task issue template
 ├── README_AI_SECTION.md     ← Template for your README
 └── docs/
     ├── llm-rules.md         ← Complete AI rules
@@ -83,7 +84,6 @@ cp -r llm-collaboration-template/docs YOUR_PROJECT/
 
 **🟡 Tier 1** - BEFORE WORKING (3 min)
 - `docs/llm-rules.md` - Core rules
-- `MOBILE_UPDATES.md` - Pending syncs
 
 **🟢 Tier 2** - AS NEEDED (reference)
 - `README.md`, `docs/architecture.md`, `docs/quick-ref.md`, `CONTRIBUTING_TEMPLATE.md`
@@ -117,29 +117,26 @@ AI (Assistant)
 
 **Result**: Human maintains control, AI accelerates work
 
-### 4. Bidirectional Mobile ↔ PC Sync
+### 4. Mobile ↔ PC Collaboration (Issue-Based)
 
-**Direction 1: Mobile → PC** (Discussions & Findings)
+**Workflow**:
 ```
-Mobile: Design discussions, brainstorming, app testing
+PC: Creates [MOBILE] issue with complete context + template
    ↓
-Human: Pastes summary to MOBILE_UPDATES.md
+Mobile: Reads issue (GitHub mobile app) → Works on task
    ↓
-PC: Reads, creates issues, updates docs, commits
-```
-
-**Direction 2: PC → Mobile** (Task Assignment)
-```
-PC: Creates [MOBILE] GitHub issue with instructions
+Mobile: Posts findings as issue comment
    ↓
-Mobile: Reads issue, guides user, collects data
-   ↓
-Mobile: Updates MOBILE_UPDATES.md with findings
-   ↓
-PC: Reads findings, completes implementation
+PC: Reads comment → Implements technical work → Closes issue
 ```
 
-**Result**: Seamless bidirectional multi-agent collaboration across environments
+**Benefits**:
+- ✅ Single source of truth (issue thread)
+- ✅ Full traceability (history in one place)
+- ✅ Native GitHub integration
+- ✅ No separate sync files needed
+
+**Result**: Simple, traceable multi-agent collaboration
 
 ---
 
