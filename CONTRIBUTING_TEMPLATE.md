@@ -124,6 +124,104 @@ AI: [Commits with proper message]
 
 ---
 
+## 🔄 Session Handoff Protocol
+
+**Why**: Context window limits and interruptions require seamless session transitions.
+
+### When to Create Handoff
+
+Create handoff files when:
+- ✅ Context window approaching limit (>80% used)
+- ✅ Work interrupted (user needs to pause)
+- ✅ Shift change (different AI taking over)
+- ✅ End of work session with incomplete tasks
+
+### Required Files
+
+#### 1. `NEXT_SESSION_START.md` (Always Create)
+**Purpose**: Quick-start guide for next AI
+**Contents**:
+```markdown
+# Next Session Start - Quick Start Guide
+
+## ✅ Completed (summary)
+## 🎯 Next Steps (specific tasks)
+## 🔍 Quick Verification (commands to run)
+## 📁 Key Files (locations)
+## ⚠️ Important Notes (gotchas, dependencies)
+```
+
+#### 2. `SESSION_SUMMARY_YYYY-MM-DD.md` (Detailed Record)
+**Purpose**: Complete session history
+**Contents**:
+```markdown
+# Session Summary - YYYY-MM-DD
+
+## Main Achievements
+## Detailed Work Log
+## Technical Decisions Made
+## Files Modified
+## Tests Status
+## Git Commits
+## Known Issues
+## Next Session Recommendations
+```
+
+### Next AI's Responsibility
+
+When starting new session:
+
+1. **First Action**: Check for handoff files
+   ```bash
+   ls -la NEXT_SESSION_START.md SESSION_SUMMARY_*.md
+   ```
+
+2. **If found**:
+   - Read `NEXT_SESSION_START.md` BEFORE anything else
+   - Read recent `SESSION_SUMMARY_*.md` (if < 7 days old)
+   - Run verification commands
+   - **Suggest continuing previous work** to PM
+
+3. **Default behavior**:
+   ```
+   "I found a session handoff from [date]. Previous work was on [X].
+   Status: [summary]. Next suggested task: [Y].
+
+   Should I continue this work, or do you have other priorities?"
+   ```
+
+### Creating Handoff (End of Session)
+
+**Timing**: When approaching context limit or ending session
+
+**Process**:
+1. Create `NEXT_SESSION_START.md` with actionable next steps
+2. Create `SESSION_SUMMARY_YYYY-MM-DD.md` with full details
+3. Git commit current work (even if incomplete)
+4. Notify PM: "Session handoff files created. Work can be resumed next session."
+
+**Example**:
+```bash
+# At end of session
+# 1. Create handoff files (done by AI)
+# 2. Commit work
+git add NEXT_SESSION_START.md SESSION_SUMMARY_*.md
+git commit -m "docs: Session handoff for [task name]"
+# 3. Inform PM
+```
+
+### Best Practices
+
+- ✅ **Be specific**: "Run pytest tests/filters/" not "run tests"
+- ✅ **Include context**: Why decisions were made
+- ✅ **List dependencies**: Files, env vars, prerequisites
+- ✅ **Quick wins first**: Start NEXT_SESSION_START with easy verification
+- ✅ **Link to issues**: Reference GitHub issue numbers
+- ❌ **Don't assume**: Next AI may be different model
+- ❌ **Don't be vague**: "Continue work" → "Implement StatValidator (see line 45)"
+
+---
+
 ## 📏 Issue Size Management
 
 **CRITICAL**: Every issue must complete in single 200K token session.

@@ -83,14 +83,23 @@ You: [Commit with reference to #X]
 When starting a new session:
 
 1. ✅ Read this file (done)
-2. ✅ Check status:
+2. 🔍 **Check for Previous Session Handoff**:
+   ```bash
+   # Check if there's a session handoff from previous AI
+   ls -la NEXT_SESSION_START.md SESSION_SUMMARY_*.md 2>/dev/null
+   ```
+   - If `NEXT_SESSION_START.md` exists → **Read it FIRST** (priority over everything)
+   - If recent `SESSION_SUMMARY_*.md` exists (< 7 days) → **Read it SECOND**
+   - These files contain critical context from previous session
+   - **Suggest continuing previous work** unless PM says otherwise
+3. ✅ Check status:
    ```bash
    gh issue list --state open --limit 5
    git status
    git log -3 --oneline
    ```
-3. ⏸ **WAIT** - Let PM tell you which issue to work on
-4. ✅ Read `docs/llm-rules.md` and `CONTRIBUTING.md` before starting work
+4. ⏸ **WAIT** - Let PM tell you which issue to work on (unless continuing from handoff)
+5. ✅ Read `docs/llm-rules.md` and `CONTRIBUTING.md` before starting work
 
 ### For Mobile Environment (GitHub Mobile Copilot, etc.)
 
