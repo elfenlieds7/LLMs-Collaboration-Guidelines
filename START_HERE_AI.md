@@ -29,12 +29,12 @@ Stop reading when you understand enough to start working.
 
 #### 🟡 Tier 1: BEFORE WORKING (read when PM assigns task)
 - `docs/llm-rules.md` - Core rules (3 min)
+- `CONTRIBUTING.md` (or `CONTRIBUTING_TEMPLATE.md`) - Role matrix & workflow (2 min)
 
 #### 🟢 Tier 2: AS NEEDED (reference during work)
 - `README.md` - Project overview
 - `docs/architecture.md` - Technical details
 - `docs/quick-ref.md` - Command cheatsheet
-- `CONTRIBUTING_TEMPLATE.md` - Detailed workflow
 
 #### ⚪ Tier 3: SKIP (human-only documentation)
 - [Add project-specific human-only docs here]
@@ -90,7 +90,7 @@ When starting a new session:
    git log -3 --oneline
    ```
 3. ⏸ **WAIT** - Let PM tell you which issue to work on
-4. ✅ Read `docs/llm-rules.md` before starting work
+4. ✅ Read `docs/llm-rules.md` and `CONTRIBUTING.md` before starting work
 
 ### For Mobile Environment (GitHub Mobile Copilot, etc.)
 
@@ -149,8 +149,9 @@ When starting a new session:
 
 **Next Steps**:
 1. Read `docs/llm-rules.md` (3 min)
-2. Run first session checklist commands above
-3. Tell PM: "Ready. I've reviewed the docs and project status. What should I work on?"
+2. Read `CONTRIBUTING.md` (2 min) - Understand role matrix & task filtering
+3. Run first session checklist commands above
+4. Tell PM: "Ready. I've reviewed the docs and project status. What should I work on?"
 
 **Don't**:
 - ❌ Pick an issue yourself

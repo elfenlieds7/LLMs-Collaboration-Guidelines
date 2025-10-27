@@ -55,7 +55,7 @@
 **Constraints**:
 - ❌ Cannot write to GitHub directly
 - ❌ Cannot implement code
-- ✅ Summaries go to `MOBILE_UPDATES.md` for PC to sync
+- ✅ Works in GitHub issue threads (post findings as comments)
 
 **Note**: Mobile and PC are independent instances (no shared context)
 
@@ -152,16 +152,16 @@ When encountering >6h issues:
 ### Workflow
 
 ```
-1. Human discusses with [AI_TOOL_2] (Mobile)
-2. Mobile summarizes decisions
-3. Human pastes summary to MOBILE_UPDATES.md
-4. [AI_TOOL_1] (PC) reads, executes actions, syncs to GitHub
-5. PC marks as synced with date
+1. PC creates [MOBILE] issue with complete context
+2. Mobile reads issue → Works on mobile tasks → Posts findings as comment
+3. PC reads Mobile's comment → Implements technical work → Closes issue
 ```
 
-**Template**: See [`MOBILE_UPDATES.md`](MOBILE_UPDATES.md)
+**Issue Template**: See `.github/ISSUE_TEMPLATE/mobile-task.md`
 
-**PC Actions**: Create issues, update docs, create ADRs, commit changes
+**Label Flow**: `mobile-task` → `mobile-done-pc-todo` → closed
+
+**PC Actions**: Create mobile issues, implement findings, update docs, commit changes
 
 ---
 
@@ -220,7 +220,7 @@ Format: `<type>(#issue): description`
 | [`docs/quick-ref.md`](docs/quick-ref.md) | Command cheatsheet |
 | [`docs/architecture.md`](docs/architecture.md) | Technical architecture |
 | [`README.md`](README.md) | Project overview |
-| [`MOBILE_UPDATES.md`](MOBILE_UPDATES.md) | Mobile sync template |
+| `.github/ISSUE_TEMPLATE/mobile-task.md` | Mobile task template |
 
 ---
 

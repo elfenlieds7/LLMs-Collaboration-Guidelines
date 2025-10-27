@@ -64,8 +64,8 @@ cp -r llm-collaboration-template/* YOUR_PROJECT/
 # 1. Copy templates
 cp llm-collaboration-template/START_HERE_AI.md YOUR_PROJECT/
 cp llm-collaboration-template/CONTRIBUTING_TEMPLATE.md YOUR_PROJECT/
-cp llm-collaboration-template/MOBILE_UPDATES.md YOUR_PROJECT/
 cp -r llm-collaboration-template/docs YOUR_PROJECT/
+# Note: MOBILE_UPDATES.md deprecated - use issue-based workflow instead
 
 # 2. Customize placeholders
 # 3. Integrate into your workflow
@@ -160,7 +160,7 @@ PC: Reads comment → Implements technical work → Closes issue
 ### Multi-AI Setup
 - Different AIs for different tasks (design vs implementation)
 - Coordinated through human PM
-- Synced via MOBILE_UPDATES.md
+- Synced via GitHub issue threads (issue-based workflow)
 
 ---
 
@@ -256,7 +256,7 @@ Projects successfully using this framework:
 | `docs/llm-rules.md` | Complete rules | AI assistants |
 | `docs/quick-ref.md` | Commands | AI during work |
 | `CONTRIBUTING_TEMPLATE.md` | Workflow | Humans & AI |
-| `MOBILE_UPDATES.md` | Sync template | AI (PC) |
+| `.github/ISSUE_TEMPLATE/` | Issue templates | Humans & AI |
 | `README_AI_SECTION.md` | README template | Humans setting up |
 
 ---
