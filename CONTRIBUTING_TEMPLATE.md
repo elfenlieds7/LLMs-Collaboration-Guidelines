@@ -147,6 +147,16 @@ When encountering >6h issues:
 
 ---
 
+## 🏷️ GitHub Labels
+
+**Principle**: Single Source of Truth (SSOT)
+
+- ✅ **DO**: Use GitHub labels for priority, type, status
+- ❌ **DON'T**: Duplicate metadata in issue body (e.g., `## Priority` field)
+- **Why**: Prevents inconsistency, enables filtering, single source of truth
+
+---
+
 ## 📱 Mobile ↔ PC Sync
 
 ### Workflow
