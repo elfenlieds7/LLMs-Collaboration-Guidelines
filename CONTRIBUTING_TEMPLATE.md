@@ -227,15 +227,12 @@ git push origin master  # CRITICAL: Don't skip this!
 
 ### Best Practices
 
-- ✅ **Check `git status` before handoff**: Commit completed work first, then handoff files
-- ✅ **ALWAYS commit + push everything**: Don't just update locally (user may switch devices)
+- ✅ **Always `git status` → commit work → commit handoff → push** (user may switch devices)
 - ✅ **Be specific**: "Run pytest tests/filters/" not "run tests"
 - ✅ **Include context**: Why decisions were made
 - ✅ **List dependencies**: Files, env vars, prerequisites
-- ✅ **Quick wins first**: Start NEXT_SESSION_START with easy verification
 - ✅ **Link to issues**: Reference GitHub issue numbers
-- ❌ **Only commit handoff files**: May leave completed work uncommitted locally
-- ❌ **Only update local files**: Next session may be on different device
+- ❌ **Commit only handoff or only update locally** (loses work on device switch)
 - ❌ **Don't assume**: Next AI may be different model
 - ❌ **Don't be vague**: "Continue work" → "Implement StatValidator (see line 45)"
 
