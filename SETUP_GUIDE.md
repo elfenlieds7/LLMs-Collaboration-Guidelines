@@ -351,6 +351,51 @@ After setup, you should see:
 
 ---
 
+## 🎁 Optional: Claude Skills Enhancement
+
+> **Optional** - Only relevant if using Claude Code with Pro/Team/Enterprise
+
+### What is This?
+
+This repo includes a **Skills template** (`.claude/skills/multi-agent-onboarding/`) that automates session start for Claude Code users.
+
+**For Claude Code users**: Skills auto-load and reduce manual steps
+**For other AIs**: Not applicable, continue with START_HERE_AI.md
+
+### Setup Decision
+
+**Ask the user**:
+```
+"Are you using Claude Code with Pro/Team/Enterprise subscription?
+- Yes → I'll copy the skills template to your project
+- No → Skip this (can add later if you switch to Claude)"
+```
+
+**If Yes (Claude doing setup)**:
+1. Copy `.claude/skills/` from this repo to project
+2. Customize if needed (project-specific docs in SKILL.md)
+3. Commit to git
+4. Done - skills will auto-load on restart
+
+**If Yes (Other AI doing setup)**:
+- Tell user: "Skills setup requires Claude Code. When you have it, copy `.claude/skills/` from template repo to your project."
+
+**If No**:
+- Skip this section entirely
+
+### Creating Project-Specific Skills
+
+If project has **independent tools** (standalone scripts like `update_schema.py`):
+- Consider creating `.claude/skills/project-tools/`
+- Include SKILL.md (usage guide) + scripts
+- Core modules (imported by app) stay in `src/`
+
+**For Claude**: You know how to create skills - use this repo's skill as reference
+
+**For other AIs**: Suggest this to user for future when they have Claude Code
+
+---
+
 ## 🎯 Next Steps
 
 After setup:
