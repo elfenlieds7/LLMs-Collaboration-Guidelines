@@ -190,6 +190,29 @@ Session 2 (AI-Beta):
 
 **Architecture**: Skills = Enhancement, not dependency
 
+**Design Principle: Where to Put Tools/Scripts**
+
+This framework introduces a clear guideline for organizing independent tools:
+
+| Type | Location | Reason |
+|------|----------|--------|
+| **Application Modules** | `src/` | Imported by app code |
+| **Independent Scripts** | `.claude/skills/project-tools/` | Standalone executables |
+| **One-time Analysis** | `scripts/` | Exploration/debugging |
+
+**Examples**:
+- ✅ `update_schema.py` → `.claude/skills/` (standalone script)
+- ✅ `FilterValidator` class → `src/` (imported module)
+- ✅ `analyze_performance.py` → `scripts/` (one-time use)
+
+**Benefits**:
+- Clear separation of concerns
+- Claude Code users get tool guidance automatically
+- Other AIs can read `.claude/skills/*/SKILL.md` for tool reference
+- Scripts with usage docs in one place
+
+**See**: `SETUP_GUIDE.md` for conversion guidelines
+
 **Result**: Claude users get streamlined experience, other AIs unchanged
 
 ---
