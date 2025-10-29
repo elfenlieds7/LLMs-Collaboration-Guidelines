@@ -82,6 +82,14 @@ You: [Commit with reference to #X]
 
 When starting a new session:
 
+0. ✅ **PULL LATEST CHANGES** (30 sec) ← **CRITICAL FIRST STEP**
+   ```bash
+   git pull
+   ```
+   - **Why**: Other AIs may have updated code/docs between sessions
+   - **Always do this first** before reading any files
+   - Prevents working on stale code and merge conflicts
+
 1. ✅ Read this file (done)
 2. 🔍 **Check for Previous Session Handoff**:
    ```bash
