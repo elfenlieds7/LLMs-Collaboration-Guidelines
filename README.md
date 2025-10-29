@@ -27,7 +27,10 @@ llm-collaboration-template/
 ├── README.md                 ← You are here
 ├── SETUP_GUIDE.md           ← Detailed setup instructions
 ├── START_HERE_AI.md         ← Universal LLM entry point
-├── CONTRIBUTING_TEMPLATE.md          ← Workflow documentation
+├── CONTRIBUTING_TEMPLATE.md ← Workflow documentation
+├── .claude/skills/          ← Claude Skills (optional)
+│   └── multi-agent-onboarding/
+│       └── SKILL.md         ← Session automation template
 ├── templates/
 │   └── ISSUE_TEMPLATE_mobile.md  ← Mobile task issue template
 ├── README_AI_SECTION.md     ← Template for your README
@@ -170,6 +173,25 @@ Session 2 (AI-Beta):
 
 **Result**: Seamless continuity across sessions and AI models
 
+### 6. Claude Skills Enhancement (Optional)
+
+**For Claude Code users only** - Automates repetitive tasks
+
+**What it does**:
+- Auto-runs `git pull` on session start
+- Auto-reads START_HERE_AI.md
+- Auto-checks for session handoffs
+- Reduces "start" to single word vs step-by-step
+
+**Implementation**:
+- Template included: `.claude/skills/multi-agent-onboarding/`
+- Copy to your project (if using Claude Code Pro)
+- Other AIs unaffected (use START_HERE_AI.md as before)
+
+**Architecture**: Skills = Enhancement, not dependency
+
+**Result**: Claude users get streamlined experience, other AIs unchanged
+
 ---
 
 ## 💡 Use Cases
@@ -217,7 +239,7 @@ Projects successfully using this framework:
 
 ### Your Project Here
 
-**Using this framework?** [Submit a PR](https://github.com/elfenlieds7/multi-agent-and-human-guidelines/pulls) to add your project!
+**Using this framework?** [Submit a PR](https://github.com/elfenlieds7/llms-collaboration-guidelines/pulls) to add your project!
 
 **Include**:
 - Project name and GitHub link
@@ -361,8 +383,8 @@ After using this framework, you should see:
 
 ---
 
-**Version**: 1.0
-**Last Updated**: 2025-10-26
+**Version**: 1.2
+**Last Updated**: 2025-10-29
 **Status**: Production-ready
 
 **Start now**: Read `SETUP_GUIDE.md`
