@@ -197,26 +197,29 @@ When starting new session:
 **Process**:
 1. Create `NEXT_SESSION_START.md` with actionable next steps
 2. Create `SESSION_SUMMARY_YYYY-MM-DD.md` with full details
-3. Git commit current work (even if incomplete)
-4. Notify PM: "Session handoff files created. Work can be resumed next session."
+3. Git commit + push current work (even if incomplete)
+4. Notify PM: "Handoff committed and pushed. Ready for next session on any device."
 
 **Example**:
 ```bash
 # At end of session
 # 1. Create handoff files (done by AI)
-# 2. Commit work
+# 2. Commit and push to remote
 git add NEXT_SESSION_START.md SESSION_SUMMARY_*.md
 git commit -m "docs: Session handoff for [task name]"
-# 3. Inform PM
+git push origin master  # CRITICAL: Don't skip this!
+# 3. Inform PM: "Handoff committed and pushed to GitHub"
 ```
 
 ### Best Practices
 
+- ✅ **ALWAYS commit + push handoff files**: Don't just update locally (user may switch devices)
 - ✅ **Be specific**: "Run pytest tests/filters/" not "run tests"
 - ✅ **Include context**: Why decisions were made
 - ✅ **List dependencies**: Files, env vars, prerequisites
 - ✅ **Quick wins first**: Start NEXT_SESSION_START with easy verification
 - ✅ **Link to issues**: Reference GitHub issue numbers
+- ❌ **Only update local files**: Next session may be on different device
 - ❌ **Don't assume**: Next AI may be different model
 - ❌ **Don't be vague**: "Continue work" → "Implement StatValidator (see line 45)"
 
