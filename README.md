@@ -25,7 +25,7 @@ A complete, production-tested framework for collaborating with AI assistants on 
 ```
 llm-collaboration-template/
 ├── README.md                 ← You are here
-├── SETUP_GUIDE.md           ← Detailed setup instructions
+├── SETUP_GUIDE_HUMAN.md     ← Detailed setup instructions
 ├── START_HERE_AI.md         ← Universal LLM entry point
 ├── CONTRIBUTING_TEMPLATE.md ← Workflow documentation
 ├── .claude/skills/          ← Claude Skills (optional)
@@ -49,7 +49,7 @@ llm-collaboration-template/
 # 1. Copy templates to your project
 cp -r llm-collaboration-template/* YOUR_PROJECT/
 
-# 2. Replace placeholders (see SETUP_GUIDE.md)
+# 2. Replace placeholders (see SETUP_GUIDE_HUMAN.md)
 [PROJECT_NAME], [AI_TOOL_1], [AI_TOOL_2], etc.
 
 # 3. Add AI Onboarding section to README
@@ -74,7 +74,7 @@ cp -r llm-collaboration-template/docs YOUR_PROJECT/
 # 3. Integrate into your workflow
 ```
 
-**See**: `SETUP_GUIDE.md` for complete instructions
+**See**: `SETUP_GUIDE_HUMAN.md` for complete instructions
 
 ---
 
@@ -211,7 +211,7 @@ This framework introduces a clear guideline for organizing independent tools:
 - Other AIs can read `.claude/skills/*/SKILL.md` for tool reference
 - Scripts with usage docs in one place
 
-**See**: `SETUP_GUIDE.md` for conversion guidelines
+**See**: `SETUP_GUIDE_HUMAN.md` for conversion guidelines
 
 **Result**: Claude users get streamlined experience, other AIs unchanged
 
@@ -328,7 +328,7 @@ Projects successfully using this framework:
 | Document | Purpose | Audience |
 |----------|---------|----------|
 | `README.md` (this) | Overview | Everyone |
-| `SETUP_GUIDE.md` | Detailed setup | Humans setting up |
+| `SETUP_GUIDE_HUMAN.md` | Detailed setup | Humans setting up |
 | `START_HERE_AI.md` | Entry point | AI assistants |
 | `docs/llm-rules.md` | Complete rules | AI assistants |
 | `docs/quick-ref.md` | Commands | AI during work |
@@ -341,7 +341,7 @@ Projects successfully using this framework:
 ## 🚀 Getting Started
 
 1. **Read** this README (you are here) - 5 min
-2. **Read** `SETUP_GUIDE.md` - 10 min
+2. **Read** `SETUP_GUIDE_HUMAN.md` - 10 min
 3. **Copy** templates to your project - 2 min
 4. **Customize** placeholders - 10 min
 5. **Test** with an AI assistant - 5 min
@@ -382,7 +382,7 @@ Developed through practical experience building POE2 Craft Advisor with:
 ## 📞 Support
 
 **Questions?**
-- Read `SETUP_GUIDE.md` for detailed instructions
+- Read `SETUP_GUIDE_HUMAN.md` for detailed instructions
 - Check existing GitHub Issues
 - Create new issue for bugs/suggestions
 
@@ -410,4 +410,4 @@ After using this framework, you should see:
 **Last Updated**: 2025-10-29
 **Status**: Production-ready
 
-**Start now**: Read `SETUP_GUIDE.md`
+**Start now**: Read `SETUP_GUIDE_HUMAN.md`
