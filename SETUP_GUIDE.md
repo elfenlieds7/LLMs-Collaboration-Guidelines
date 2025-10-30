@@ -1,444 +1,440 @@
 # LLM Collaboration Framework - Setup Guide
 
-> **Purpose**: Guide for setting up this multi-agent collaboration framework in your project
-> **Time**: 15-20 minutes
+> **Purpose**: Guide for setting up this framework in your project
 > **Compatibility**: Any LLM (Claude, GPT-4, Gemini, etc.)
 
 ---
 
-## 📦 What's Included
+## 📦 What This Framework Provides
 
-This template package provides a complete framework for **human-led, multi-agent AI collaboration**:
+A complete framework for **human-led, multi-agent AI collaboration**:
 
-**Core Documents**:
-- `START_HERE_AI.md` - Universal LLM entry point
-- `docs/llm-rules.md` - Complete rules for AI assistants
-- `docs/quick-ref.md` - Command reference
-- `CONTRIBUTING_TEMPLATE.md` - Workflow documentation
-- `templates/ISSUE_TEMPLATE_mobile.md` - Mobile task issue template
-- `README_AI_SECTION.md` - README template
-
-**Key Features**:
-- ✅ Works with any LLM (Claude, GPT-4, Gemini, etc.)
 - ✅ Clear authority: Human decides, AI proposes/implements
 - ✅ 200K context management (issues < 6h)
-- ✅ Mobile/PC sync workflow
 - ✅ Token-efficient documentation
-- ✅ Tiered reading strategy (🔴🟡🟢⚪)
+- ✅ Works with any LLM (Claude, GPT-4, Gemini, etc.)
+- ✅ Mobile/PC sync workflow
+- ✅ Session handoff protocol
 
 ---
 
-## 🚀 Quick Setup (5 Steps)
+## 🆕 New Project Setup (5 minutes)
 
-### Step 1: Copy Files to Your Project
+If you're starting a **brand new project**, setup is trivial:
 
 ```bash
-# Copy all template files to your project root
-cp llm-collaboration-template/START_HERE_AI.md YOUR_PROJECT/
-cp llm-collaboration-template/CONTRIBUTING_TEMPLATE.md YOUR_PROJECT/
+# 1. Copy files
+cp START_HERE_AI.md YOUR_PROJECT/
+cp CONTRIBUTING_TEMPLATE.md YOUR_PROJECT/CONTRIBUTING.md  # ← Direct copy
+cp -r docs/ YOUR_PROJECT/
 
-# Copy docs and templates
-cp -r llm-collaboration-template/docs YOUR_PROJECT/
-cp -r llm-collaboration-template/templates YOUR_PROJECT/
+# 2. Replace placeholders
+find YOUR_PROJECT -type f -name "*.md" -exec sed -i '' \
+  's/\[PROJECT_NAME\]/YourProject/g' {} +
+# Repeat for: [PROJECT_DESCRIPTION], [TECH_STACK], [AI_TOOL_1], [AI_TOOL_2], [DATE]
 
-# Optional: Copy mobile issue template to GitHub
-mkdir -p YOUR_PROJECT/.github/ISSUE_TEMPLATE
-cp YOUR_PROJECT/templates/ISSUE_TEMPLATE_mobile.md YOUR_PROJECT/.github/ISSUE_TEMPLATE/mobile-task.md
+# 3. Done!
 ```
 
-### Step 2: Customize Placeholders
+**Why simple?** No existing content to merge, just copy and customize.
 
-Replace these placeholders in **all files**:
+---
+
+## 🔄 Integration into Existing Project (Main Guide)
+
+> **This is the real challenge.** Your project already has CONTRIBUTING.md.
+
+### Key Principle
+
+**Don't replace your CONTRIBUTING.md - Merge AI collaboration content into it.**
+
+```
+Your existing CONTRIBUTING.md:
+├── Getting Started
+├── Development Workflow (technical)
+├── Testing
+└── ...
+
+After integration:
+├── Getting Started  (preserved)
+├── AI Assistant Collaboration  ← INJECTED from CONTRIBUTING_TEMPLATE.md
+├── Technical Development Workflow  (preserved, renamed)
+├── Testing  (preserved)
+└── ...
+```
+
+---
+
+### Prerequisites Check
+
+Before starting, verify:
+
+- [ ] GitHub repository with active development
+- [ ] Existing `CONTRIBUTING.md` OR willing to create one
+- [ ] Multiple contributors or AI tools in use
+- [ ] Issues tracked in GitHub
+
+---
+
+### Step 1: Determine Your Scenario
+
+#### Scenario A: No CONTRIBUTING.md
+
+**Action**: Use CONTRIBUTING_TEMPLATE.md as-is
+
+```bash
+cp CONTRIBUTING_TEMPLATE.md YOUR_PROJECT/CONTRIBUTING.md
+# Replace placeholders
+# Skip to Step 5 (Customize)
+```
+
+#### Scenario B: Simple CONTRIBUTING.md (< 100 lines)
+
+**Action**: Use template as base, manually merge your content
+
+```bash
+cp YOUR_PROJECT/CONTRIBUTING.md YOUR_PROJECT/CONTRIBUTING.md.backup
+cp CONTRIBUTING_TEMPLATE.md YOUR_PROJECT/CONTRIBUTING.md
+# Manually add back your project-specific sections
+# Replace placeholders
+```
+
+#### Scenario C: Mature CONTRIBUTING.md (> 100 lines) ← **Most Common**
+
+**Action**: Extract AI sections from template, inject into your file
+
+**This is complex. Continue to Step 2.**
+
+---
+
+### Step 2: Analyze Conflicts (For Mature Projects)
+
+Open both files side-by-side:
+- Your `CONTRIBUTING.md`
+- This repo's `CONTRIBUTING_TEMPLATE.md`
+
+Look for these conflicts:
+
+| Your Section | Template Section | Conflict? | Resolution |
+|-------------|------------------|-----------|------------|
+| "Development Workflow" | "AI Development Workflow" | ✅ Yes | Rename yours to "Technical Development Workflow" |
+| "Commit Guidelines" | "Commit Convention" | ⚠️ Partial | Keep yours, add AI requirement (issue #) |
+| "Testing" | "Testing" (AI rule) | ⚠️ Partial | Keep yours, add "No untested code" rule |
+| "Documentation" | "Documentation" | ⚠️ Partial | Keep yours, add doc update triggers |
+
+**Goal**: Identify where to inject AI sections without breaking existing structure.
+
+---
+
+### Step 3: Extract AI Sections from Template
+
+From `CONTRIBUTING_TEMPLATE.md`, you need these sections:
+
+**Must Extract** (for all projects):
+1. ✅ **Roles & Authority** (Human PM, AI assistants)
+2. ✅ **Decision Authority Matrix** (table)
+3. ✅ **AI Development Workflow** (Propose → Approve → Implement)
+4. ✅ **Session Handoff Protocol**
+5. ✅ **Issue Size Management** (200K context rule)
+
+**Optional** (skip if not applicable):
+6. ⏸ **Mobile ↔ PC Sync** (only if using mobile AI)
+7. ⏸ **GitHub Labels** (only if using this label system)
+
+**How to extract**:
+- Copy sections from CONTRIBUTING_TEMPLATE.md
+- Or see `examples/integrations/CONTRIBUTING_INTEGRATED.md` for example
+
+---
+
+### Step 4: Merge (Inject AI Sections)
+
+**Recommended injection point**: After "Getting Started", before your technical workflow.
+
+**Process**:
+
+1. **Backup first**:
+   ```bash
+   cp YOUR_PROJECT/CONTRIBUTING.md YOUR_PROJECT/CONTRIBUTING.md.backup
+   ```
+
+2. **Create merged version**:
+   ```markdown
+   # Contributing to [Your Project]
+
+   [Your existing "Getting Started" section]
+
+   ---
+
+   ## AI Assistant Collaboration  ← NEW SECTION (injected)
+
+   > For AI: Read START_HERE_AI.md first
+
+   ### Roles & Authority
+   [Copy from CONTRIBUTING_TEMPLATE.md]
+
+   ### Decision Authority Matrix
+   [Copy from CONTRIBUTING_TEMPLATE.md]
+
+   ### AI Development Workflow
+   [Copy from CONTRIBUTING_TEMPLATE.md]
+
+   ### Session Handoff Protocol
+   [Copy from CONTRIBUTING_TEMPLATE.md]
+
+   ### Issue Size Management
+   [Copy from CONTRIBUTING_TEMPLATE.md]
+
+   ---
+
+   ## Technical Development Workflow  ← RENAMED (was "Development Workflow")
+
+   [Your existing technical workflow - preserved 100%]
+
+   [All your other existing sections - preserved 100%]
+   ```
+
+3. **Optimization** (optional but recommended):
+   - Use tables for roles (instead of long lists)
+   - Remove dialogue examples, keep steps
+   - Link to `docs/llm-rules.md` for details
+   - See `examples/integrations/CONTRIBUTING_INTEGRATED.md` for example
+
+---
+
+### Step 5: Add Supporting Files
+
+```bash
+# Copy core files
+cp START_HERE_AI.md YOUR_PROJECT/
+cp docs/llm-rules.md YOUR_PROJECT/docs/
+cp docs/quick-ref.md YOUR_PROJECT/docs/
+```
+
+---
+
+### Step 6: Customize All Files
+
+#### Replace placeholders everywhere:
 
 | Placeholder | Replace With | Example |
 |-------------|--------------|---------|
-| `[PROJECT_NAME]` | Your project name | "MyApp" |
-| `[PROJECT_DESCRIPTION]` | Brief description | "E-commerce platform" |
-| `[ARCHITECTURE_SUMMARY]` | Tech overview | "React + Node.js + PostgreSQL" |
-| `[TECH_STACK]` | Main technologies | "TypeScript, React, Express" |
-| `[CURRENT_PHASE]` | Development phase | "MVP Development" |
-| `[AI_TOOL_1]` | PC AI name | "Claude Code", "GitHub Copilot" |
-| `[AI_TOOL_2]` | Mobile AI name | "Claude Mobile", "ChatGPT" |
-| `[DATE]` | Today's date | "2025-10-26" |
-| `[YOUR_TEST_COMMAND]` | Test command | "npm test", "pytest" |
-| `[YOUR_INSTALL_COMMAND]` | Install deps | "npm install", "pip install -r requirements.txt" |
-| `[DEPENDENCY_FILE]` | Dependency file | "package.json", "requirements.txt" |
-| `[CONFIG_FILE]` | Config file | ".env", "config.yml" |
+| `[PROJECT_NAME]` | Your project name | "Nexus" |
+| `[PROJECT_DESCRIPTION]` | Brief description | "AI-native filesystem" |
+| `[TECH_STACK]` | Main technologies | "Python 3.11+, PostgreSQL, FastAPI" |
+| `[AI_TOOL_1]` | PC AI name | "Claude Code" |
+| `[AI_TOOL_2]` | Mobile AI name | "Github Mobile" |
+| `[DATE]` | Today's date | "2025-10-30" |
 
-**Find & Replace**:
+**Find & replace**:
 ```bash
-# On Mac/Linux
-find YOUR_PROJECT -type f -name "*.md" -exec sed -i '' 's/\[PROJECT_NAME\]/MyApp/g' {} +
+# Mac/Linux
+find YOUR_PROJECT -type f -name "*.md" -exec sed -i '' \
+  's/\[PROJECT_NAME\]/YourProject/g' {} +
 
-# On Windows (PowerShell)
-Get-ChildItem -Path YOUR_PROJECT -Filter *.md -Recurse | ForEach-Object {
-    (Get-Content $_.FullName) -replace '\[PROJECT_NAME\]', 'MyApp' | Set-Content $_.FullName
-}
+# Repeat for each placeholder
 ```
 
-### Step 3: Add AI Onboarding Section to README
+#### Customize project-specific content:
 
-Open `README_AI_SECTION.md`, customize it, and paste into your `README.md`:
-
+**In `docs/llm-rules.md`** (around line 50):
 ```markdown
-# Your Project Name
+**Doc update triggers**:
 
-[Your existing content...]
-
----
-
-[PASTE CUSTOMIZED AI ONBOARDING SECTION HERE]
-
----
-
-## License
-[...]
+| Change Type | Update Files |
+|-------------|--------------|
+| API changes | docs/api/*.md |  ← Your actual doc structure
+| Schema changes | docs/database.md |
+| Add dependency | requirements.txt |  ← Your dependency file
 ```
 
-### Step 4: Customize Project-Specific Content
-
-**`docs/llm-rules.md`**:
-- Add project-specific doc update triggers (line ~30)
-
-**`docs/quick-ref.md`**:
-- Add your test commands
-- Add your project-specific commands (build, lint, etc.)
-
-**`START_HERE_AI.md`**:
-- Add human-only docs to Tier 3 (line ~50)
-- Fill in "Project Quick Facts" table (line ~90)
-
-### Step 5: Verify Setup
-
-Create a checklist issue in GitHub:
-
+**In `docs/quick-ref.md`**:
 ```markdown
-## Setup Verification
+## Testing
 
-- [ ] All files copied and placeholders replaced
-- [ ] README.md has AI Onboarding section
-- [ ] Project-specific commands added to quick-ref.md
-- [ ] Mobile task labels created (`mobile-task`, `mobile-done-pc-todo`, `mobile-blocked`)
-- [ ] Tested with at least one AI assistant
+```bash
+make test              # Replace with YOUR test command
+pytest tests/          # npm test, cargo test, etc.
 ```
 
----
-
-## 📋 Complete File Checklist
-
-After setup, your project should have:
-
-```
-YOUR_PROJECT/
-├── START_HERE_AI.md          ✅ LLM entry point
-├── CONTRIBUTING_TEMPLATE.md  ✅ Workflow guide
-├── README.md                  ✅ (with AI Onboarding section added)
-├── .github/
-│   └── ISSUE_TEMPLATE/
-│       └── mobile-task.md    ✅ Mobile task template
-├── templates/
-│   └── ISSUE_TEMPLATE_mobile.md  ✅ Template source
-└── docs/
-    ├── llm-rules.md          ✅ Core AI rules
-    ├── quick-ref.md          ✅ Command reference
-    └── architecture.md        📝 (create if not exists)
-```
-
----
-
-## 🔧 Customization Guide
-
-### For Different Project Types
-
-#### Web App (Frontend + Backend)
-- Update quick-ref.md with: `npm run dev`, `npm run build`, `npm test`
-- Add to Tier 3 (skip): Deployment scripts, CI/CD configs
-
-#### Python Project
-- Update quick-ref.md with: `pytest`, `pip install -r requirements.txt`
-- Add to Tier 3 (skip): Virtual env setup, deployment scripts
-
-#### Mobile App
-- Update quick-ref.md with: `npm run ios`, `npm run android`
-- Add to Tier 3 (skip): Signing configs, store deployment
-
-### For Different AI Tools
-
-#### Using OpenAI GPT-4
-- Replace `Claude Code` → `GPT-4` in CONTRIBUTING_TEMPLATE.md
-- Replace `Claude Mobile` → `ChatGPT` in CONTRIBUTING_TEMPLATE.md
-
-#### Using Google Gemini
-- Replace `Claude Code` → `Gemini` in CONTRIBUTING_TEMPLATE.md
-- May need to adjust context limits if Gemini has different limits
-
-#### Using Multiple Tools
-- Keep `[AI_TOOL_1]` and `[AI_TOOL_2]` generic
-- Document which tool is used where in README
-
-### Adding Project-Specific Rules
-
-Create `docs/project-rules.md` for additional rules:
+**In `START_HERE_AI.md`** (around line 135):
 ```markdown
-# Project-Specific Rules
-
-## Code Style
-- [Your conventions]
-
-## Testing Requirements
-- [Your requirements]
-
-## Deployment Process
-- [Your process]
+| **Project** | Your Actual Project Name |
+| **Description** | Real description |
+| **Tech Stack** | Your actual stack |
+| **Phase** | Current phase (e.g., "v0.5, active development") |
 ```
-
-Add to Tier 2 in START_HERE_AI.md.
 
 ---
 
-## 🧪 Testing Your Setup
+### Step 7: Verify Integration
 
-### Test 1: New LLM Onboarding
+#### File Checklist
 
-1. Open a new AI assistant session
-2. Tell it: `"Read START_HERE_AI.md"`
-3. Verify it understands:
-   - Its role (assistant, not decision maker)
-   - Reading priority (🔴→🟡→🟢→⚪)
+```bash
+# Check all files exist
+ls -la YOUR_PROJECT/START_HERE_AI.md
+ls -la YOUR_PROJECT/CONTRIBUTING.md
+ls -la YOUR_PROJECT/CONTRIBUTING.md.backup  # backup exists
+ls -la YOUR_PROJECT/docs/llm-rules.md
+ls -la YOUR_PROJECT/docs/quick-ref.md
+
+# Check no placeholders remain
+grep -r '\[PROJECT_NAME\]' YOUR_PROJECT/*.md  # Should be empty
+grep -r '\[AI_TOOL' YOUR_PROJECT/*.md         # Should be empty
+```
+
+#### Link Verification
+
+Open each file and verify links work:
+- [ ] START_HERE_AI.md → docs/llm-rules.md ✓
+- [ ] START_HERE_AI.md → CONTRIBUTING.md ✓
+- [ ] CONTRIBUTING.md → docs/llm-rules.md ✓
+- [ ] All cross-references resolve
+
+#### Content Verification
+
+- [ ] Your original CONTRIBUTING.md content 100% preserved
+- [ ] AI collaboration sections present and coherent
+- [ ] Project-specific commands updated (not template placeholders)
+- [ ] Doc update triggers reflect your actual doc structure
+
+---
+
+### Step 8: Test with AI
+
+**New AI session**:
+1. Tell AI: `"Read START_HERE_AI.md"`
+2. Check it understands:
+   - Its role (assistant, not PM)
+   - Reading priorities (Tier 0 → 1 → 2)
    - Where to find information
-
-### Test 2: Mobile Workflow
-
-1. Create a test mobile task issue using the template
-2. Tell Mobile AI (if available): `"Check for mobile tasks"`
-3. Verify workflow:
-   - Mobile reads issue
-   - Mobile posts findings as comment
-   - PC reads comment and acts on it
-   - Issue gets closed
-
-**Alternative test (PC only)**:
-- Create a `[MOBILE]` issue manually
-- Verify PC recognizes mobile task labels
-
-### Test 3: Issue Size Management
-
-1. Create a large issue (>6h estimate)
-2. Tell AI: `"Let's work on #X"`
-3. Verify it:
-   - Recognizes it's too large
-   - Alerts you
-   - Proposes split into sub-issues
-   - Waits for approval
+3. Ask: `"What's your role and workflow?"`
+4. Verify response matches: "I propose → You decide → I implement"
 
 ---
 
-## 📊 Expected Outcomes
+## 🔧 Advanced: Optional Enhancements
 
-After setup, you should see:
+### Claude Skills (Claude Code Pro+ only)
 
-### For Human PM
-- ✅ Clear authority over all decisions
-- ✅ AI waits for approval before coding
-- ✅ Structured proposal → approval → implementation workflow
-- ✅ Easy to onboard new AI tools (just point to START_HERE_AI.md)
+If using Claude Code, add `.claude/skills/multi-agent-onboarding/` to automate:
+- `git pull` on session start
+- Reading START_HERE_AI.md
+- Checking for handoff files
 
-### For AI Assistants
-- ✅ 5-minute onboarding time
-- ✅ Clear understanding of role and constraints
-- ✅ Know where to find information
-- ✅ Proper issue sizing (< 6h per issue)
-- ✅ Consistent commit messages
+**Others**: Not applicable
 
-### For Project
-- ✅ All work tracked in GitHub Issues
-- ✅ Clean, concise documentation
-- ✅ Mobile/PC collaboration works smoothly
-- ✅ Context-efficient (saves tokens)
+### Project-Specific Skills
+
+For standalone tools (like `update_schema.py`):
+- Create `.claude/skills/project-tools/`
+- Include SKILL.md with usage guide
+
+**Note**: Core modules (imported by app) stay in `src/`, not skills
 
 ---
 
 ## 🔍 Troubleshooting
 
-### AI doesn't follow rules
+### Can't figure out where to inject AI sections
 
-**Problem**: AI starts coding without approval
+**Solution**: After "Getting Started", before technical workflow. When in doubt: earlier is better.
 
-**Solution**:
-1. Point it to: `"Read docs/llm-rules.md section 'Golden Rule'"`
-2. Remind: `"Wait for my approval before implementing"`
-3. If persistent, add to your session prompt
+### Merge conflicts with existing content
 
-### AI reads too many docs
+**Solutions**:
+- Chapter names conflict? Rename yours (e.g., add "Technical")
+- Both have guidelines? Keep yours, add AI requirements
+- Not sure? Ask: duplicate or separate?
 
-**Problem**: AI wastes context reading everything
+### Docs too long (token waste)
 
-**Solution**:
-1. Emphasize START_HERE_AI.md tiered approach
-2. Tell it: `"Only read 🔴 and 🟡 tiers initially"`
-3. Add: `"Read 🟢 tier only when needed"`
+**Solutions**: Use tables/minimal examples, link to details, remove redundancy. Target: ~80 lines for AI sections.
 
-### Mobile workflow not working
+### Mobile section not applicable
 
-**Problem**: Mobile AI can't find mobile tasks
+**Solution**: Skip "Mobile ↔ PC Sync" when extracting if not using mobile AI.
 
-**Solution**:
-1. Verify labels exist: `mobile-task`, `mobile-done-pc-todo`, `mobile-blocked`
-2. Create labels: `gh label create mobile-task --color "FFA500"`
-3. Ensure issues have `[MOBILE]` prefix in title
-4. If using GitHub mobile app, verify Copilot access
+---
 
-### Issues are too large
+## ✅ Final Checklist
 
-**Problem**: Issues consistently exceed 6h
+After integration:
 
-**Solution**:
-1. Break down features more granularly
-2. Use parent issues + sub-issues structure
-3. Train AI to alert earlier (at estimation phase)
+**Files**:
+- [ ] Backup of original CONTRIBUTING.md exists
+- [ ] START_HERE_AI.md has your project info (no placeholders)
+- [ ] CONTRIBUTING.md has AI sections injected (not replaced)
+- [ ] docs/llm-rules.md has your project's doc triggers
+- [ ] docs/quick-ref.md has your actual commands
+
+**Content**:
+- [ ] No `[PLACEHOLDER]` strings remain anywhere
+- [ ] All internal links work
+- [ ] Your original content 100% preserved
+- [ ] Project-specific info filled in
+
+**Testing**:
+- [ ] AI can successfully onboard (test with real session)
+- [ ] AI understands its role (propose, not decide)
+- [ ] File sizes reasonable (not bloated)
+
+---
+
+## 📊 Expected Results
+
+### For You (Human PM)
+- ✅ Retain 100% authority over decisions
+- ✅ AI waits for approval before coding
+- ✅ Clear workflow: AI proposes → You approve → AI implements
+- ✅ Easy AI onboarding (5 min vs 30+ min)
+
+### For AI Assistants
+- ✅ 5-minute onboarding
+- ✅ Clear role understanding
+- ✅ Know where to find info
+- ✅ Proper issue sizing (< 6h)
+- ✅ Consistent commits with issue references
+
+### For Your Project
+- ✅ All work tracked in GitHub Issues
+- ✅ Concise, token-efficient docs
+- ✅ Structured AI collaboration (not chaos)
 
 ---
 
 ## 🎓 Best Practices
 
-### For Humans
+### For Integration
+1. **Backup first** - Always create .backup before modifying
+2. **Analyze conflicts** - Understand what clashes before executing
+3. **Ask PM** - Don't assume what's needed
+4. **Compress** - Use tables and minimal examples for mature projects
+5. **Test early** - Verify with AI session before committing
 
-1. **Always review diffs** before approving commits
-2. **Provide clear requirements** when assigning issues
-3. **Be explicit** with approval: "Yes, go ahead" not just "ok"
-4. **Keep issues small** (< 6h) from the start
-
-### For Teams
-
-1. **Onboard new members** with this same framework
-2. **Document project-specific patterns** in project-rules.md
-3. **Review AI-generated code** in pull requests
-4. **Iterate on the workflow** based on team feedback
-
-### For Long-Term Maintenance
-
+### For Maintenance
 1. **Update dates** when docs change
-2. **Keep docs concise** - remove outdated content
-3. **Close stale mobile issues** (> 30 days)
-4. **Version your templates** if you make significant changes
+2. **Keep concise** - Remove outdated content promptly
+3. **Document changes** - Note what and why in commit messages
 
 ---
 
-## 📚 Additional Resources
 
-### Understanding the Framework
+## 📚 Resources
 
-- **Why 200K limit?** - AI context window constraints
-- **Why < 6h issues?** - Ensures completion in single session
-- **Why tiered reading?** - Faster onboarding, less context waste
-- **Why approval-based?** - Human maintains control and oversight
-
-### Adapting for Scale
-
-**Small team (1-3 people)**:
-- Can be more informal with approvals
-- Single AI tool might be sufficient
-
-**Medium team (4-10 people)**:
-- Strict approval process important
-- Multiple AI tools for different roles
-- Regular sync meetings about AI usage
-
-**Large team (10+ people)**:
-- Standardized templates critical
-- Team-specific rule documents
-- Designated "AI coordinators"
+- **CONTRIBUTING_TEMPLATE.md**: Full template (source for extraction)
+- **examples/integrations/**: Real integration examples (nexus and more)
+- **.claude/skills/**: Optional Claude Code automation
 
 ---
 
-## 🎁 Optional: Claude Skills Enhancement
+## 📞 Support
 
-> **Optional** - Only relevant if using Claude Code with Pro/Team/Enterprise
-
-### What is This?
-
-This repo includes a **Skills template** (`.claude/skills/multi-agent-onboarding/`) that automates session start for Claude Code users.
-
-**For Claude Code users**: Skills auto-load and reduce manual steps
-**For other AIs**: Not applicable, continue with START_HERE_AI.md
-
-### Setup Decision
-
-**Ask the user**:
-```
-"Are you using Claude Code with Pro/Team/Enterprise subscription?
-- Yes → I'll copy the skills template to your project
-- No → Skip this (can add later if you switch to Claude)"
-```
-
-**If Yes (Claude doing setup)**:
-1. Copy `.claude/skills/` from this repo to project
-2. Customize if needed (project-specific docs in SKILL.md)
-3. Commit to git
-4. Done - skills will auto-load on restart
-
-**If Yes (Other AI doing setup)**:
-- Tell user: "Skills setup requires Claude Code. When you have it, copy `.claude/skills/` from template repo to your project."
-
-**If No**:
-- Skip this section entirely
-
-### Creating Project-Specific Skills
-
-If project has **independent tools** (standalone scripts like `update_schema.py`):
-- Consider creating `.claude/skills/project-tools/`
-- Include SKILL.md (usage guide) + scripts
-- Core modules (imported by app) stay in `src/`
-
-**For Claude**: You know how to create skills - use this repo's skill as reference
-
-**For other AIs**: Suggest this to user for future when they have Claude Code
+**Issues?** Check [Troubleshooting](#-troubleshooting) or create GitHub issue
 
 ---
 
-## 🎯 Next Steps
-
-After setup:
-
-1. ✅ Test the framework with a small task
-2. ✅ Adjust templates based on your project needs
-3. ✅ Train team members on the workflow
-4. ✅ Iterate and improve based on experience
-
-**Questions or issues?** Create a GitHub issue or discussion in your project.
-
----
-
-## 📝 Version History
-
-- **v1.2** (2025-10-29): Claude Skills enhancement
-  - Added `.claude/skills/` template (optional)
-  - Updated SETUP_GUIDE.md with Skills section
-  - Compressed session templates (75-84% token reduction)
-  - Skills = enhancement, not dependency
-- **v1.1** (2025-10-27): Issue-based mobile workflow
-  - Replaced MOBILE_UPDATES.md with issue-based sync
-  - Added mobile task issue template
-  - Improved traceability
-- **v1.0** (2025-10-26): Initial template release
-  - Core framework with START_HERE_AI.md
-  - Tiered documentation structure
-  - 200K context management
-
----
-
-**Template maintained by**: [Your Name/Team]
-**Last updated**: [DATE]
-**License**: [Your License]
-
----
-
-## 🙏 Credits
-
-This framework was developed through practical experience with:
-- Multi-agent AI collaboration
-- Human-led development workflows
-- Context window optimization
-- Token-efficient documentation
-
-Tested with: Claude (Anthropic), GPT-4 (OpenAI), and designed for universal LLM compatibility.
+**Version**: 1.3 (2025-10-30)
+**Update**: Integration guide based on real nexus experience
+**Key clarification**: CONTRIBUTING_TEMPLATE.md is source for extraction, not direct copy in integration scenarios

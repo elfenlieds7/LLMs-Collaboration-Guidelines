@@ -260,6 +260,20 @@ Projects successfully using this framework:
 
 ---
 
+### [Nexus](https://github.com/nexi-lab/nexus)
+**Description**: AI-native filesystem for building intelligent agents
+- **Stack**: Python 3.11+, PostgreSQL/SQLite, pgvector, FastAPI
+- **AI Tools**: Claude Code (PC) + Github Mobile
+- **Scale**: 133+ Python files, v0.5, active development
+- **Integration Type**: Framework integrated into existing mature open-source project
+
+**Key validation**:
+- Successfully integrated into project with established conventions
+- Preserved all existing documentation and workflows
+- Real-world validation of framework's integration approach
+
+---
+
 ### Your Project Here
 
 **Using this framework?** [Submit a PR](https://github.com/elfenlieds7/llms-collaboration-guidelines/pulls) to add your project!
@@ -369,13 +383,13 @@ This framework is open for contributions. To suggest improvements:
 
 ## 🙏 Acknowledgments
 
-Developed through practical experience building POE2 Craft Advisor with:
+Developed and validated through:
+- **POE2 Craft Advisor**: Initial framework development (greenfield project)
+- **Nexus**: Integration validation (existing mature project)
 - Multiple AI agents (Claude Mobile + Claude Code)
-- Human-led workflow
-- Context optimization techniques
-- Real project constraints
+- Real project constraints and production use
 
-**Proven in production**, now available as a template.
+**Proven in production**, validated through diverse project types.
 
 ---
 
@@ -406,8 +420,8 @@ After using this framework, you should see:
 
 ---
 
-**Version**: 1.2
-**Last Updated**: 2025-10-29
+**Version**: 1.3
+**Last Updated**: 2025-10-30
 **Status**: Production-ready
 
 **Start now**: Read `SETUP_GUIDE.md`
