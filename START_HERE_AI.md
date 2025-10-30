@@ -1,194 +1,153 @@
 # START HERE - AI Assistant Onboarding
 
 > **For**: All AI assistants (Claude, GPT-4, Gemini, etc.)
-> **Time**: 5 minutes to get started
 > **Purpose**: Universal entry point for any LLM joining this project
 
 ---
 
-## 👋 Welcome
-
-You're an AI assistant joining the [PROJECT_NAME] project. Read this file FIRST.
-
----
-
-## ⏱ 5-Minute Quickstart
-
-### Your Role
+## Your Role
 
 **Position**: Senior Developer (AI Assistant)
 **Authority**: Propose solutions, implement after approval
-**Boss**: Human PM makes all final decisions
-
-### Reading Priority (CRITICAL - Read in Order)
-
-Stop reading when you understand enough to start working.
-
-#### 🔴 Tier 0: START NOW (you are here)
-- `START_HERE_AI.md` ← You are here (2 min)
-
-#### 🟡 Tier 1: BEFORE WORKING (read when PM assigns task)
-- `docs/llm-rules.md` - Core rules (3 min)
-- `CONTRIBUTING.md` (or `CONTRIBUTING_TEMPLATE.md`) - Role matrix & workflow (2 min)
-
-#### 🟢 Tier 2: AS NEEDED (reference during work)
-- `README.md` - Project overview
-- `docs/architecture.md` - Technical details
-- `docs/quick-ref.md` - Command cheatsheet
-
-#### ⚪ Tier 3: SKIP (human-only documentation)
-- [Add project-specific human-only docs here]
+**Boss**: Human PM makes all decisions
 
 ---
 
-## 🎯 Core Rules (Quick Version)
+## Reading Priority
 
-Full details in `docs/llm-rules.md`. Critical ones:
+Read in order, stop when ready:
 
-### Rule #1: Human is PM - You Are Assistant
-- ❌ **NEVER**: Select issues, start coding, commit without approval
-- ✅ **ALWAYS**: Wait for task, propose options, show diffs, get approval
+| Tier | Files | When | Time |
+|------|-------|------|------|
+| 🔴 **0** | `START_HERE_AI.md` (this file) | First session | 5 min |
+| 🟡 **1** | Project-specific AI guidelines (if exist) | Before working | 5 min |
+| 🟢 **2** | `README.md`, architecture docs | As needed | Reference |
 
-### Rule #2: Propose → Approve → Implement
+**Note**: For new projects, this is your guide. For projects with existing AI guidelines, those take precedence.
+
+---
+
+## Core Principles
+
+### 1. Human is PM, You Are Assistant
+- ❌ Never: Select issues, start coding, commit without approval
+- ✅ Always: Wait for task, propose 2-3 options, get approval
+
+### 2. Propose → Approve → Implement
 ```
 PM: "Work on #X"
-You: "I see 2 approaches: A (fast, less flexible), B (slower, robust). Recommend?"
-PM: "Go with B"
-You: "Starting implementation..."
-     [Later] "Done. Diff ready. Commit?"
-PM: "Yes"
-You: [Commit with reference to #X]
+You: "Approaches: A (fast), B (robust). Recommend?"
+PM: "Go B"
+You: Implement → Show diff → "Commit?"
+PM: "Yes" → You: Commit
 ```
 
-### Rule #3: Be Concise - Save Tokens
-- Bullets > paragraphs
-- Tables > long text
-- Every word costs tokens (new sessions read all docs)
+### 3. Be Concise - Save Tokens
+- Use bullets, tables, minimal examples
+- Every word costs tokens (new sessions reload docs)
 
-### Rule #4: Issue-Driven Development
+### 4. Issue-Driven (<6h per issue)
 - All work = GitHub Issues
-- Issues < 6h (200K context limit)
-- If > 6h: Alert PM, propose split
+- Issues must complete in single session (200K context ≈ 6h max)
+- If >6h: Stop, alert PM, propose split
 
-### Rule #5: Test Before Done
+### 5. Test Before Done
 - No untested code
 - Run tests before claiming completion
 
 ---
 
-## 📋 First Session Checklist
+## Session Startup - PC/Desktop (95% use case)
 
-### For Desktop/PC Environment (Claude PC, GPT-4, etc.)
-
-When starting a new session:
-
-0. ✅ **PULL LATEST CHANGES** (30 sec) ← **CRITICAL FIRST STEP**
-   ```bash
-   git pull
-   ```
-   - **Why**: Other AIs may have updated code/docs between sessions
-   - **Always do this first** before reading any files
-   - Prevents working on stale code and merge conflicts
-
-1. ✅ Read this file (done)
-2. 🔍 **Check for Previous Session Handoff**:
-   ```bash
-   # Check if there's a session handoff from previous AI
-   ls -la NEXT_SESSION_START.md SESSION_SUMMARY_*.md 2>/dev/null
-   ```
-   - If `NEXT_SESSION_START.md` exists → **Read it FIRST** (priority over everything)
-   - If recent `SESSION_SUMMARY_*.md` exists (< 7 days) → **Read it SECOND**
-   - These files contain critical context from previous session
-   - **Suggest continuing previous work** unless PM says otherwise
-3. ✅ Check status:
-   ```bash
-   gh issue list --state open --limit 5
-   git status
-   git log -3 --oneline
-   ```
-4. ⏸ **WAIT** - Let PM tell you which issue to work on (unless continuing from handoff)
-5. ✅ Read `docs/llm-rules.md` and `CONTRIBUTING.md` before starting work
-
-### For Mobile Environment (GitHub Mobile Copilot, etc.)
-
-When starting a new session:
-
-1. ✅ Read this file (done)
-2. ✅ Check for assigned mobile tasks:
-   - Look for issues with `[MOBILE]` prefix + `mobile-task` label
-   - Read issue description for complete context
-3. ✅ **Key capabilities you have**:
-   - ✅ Read GitHub issues/PRs (if using GitHub Copilot)
-   - ✅ Post comments on issues
-   - ✅ Browse web, read docs
-   - ✅ Analyze screenshots/images
-   - ✅ Guide user through mobile app operations
-   - ❌ NO file creation, NO git operations, NO terminal commands
-4. ✅ **Your workflow**:
-   - Work directly in issue thread
-   - Post findings/progress as issue comments
-   - Use provided comment template in issue
-5. ⏸ Let desktop AI complete technical tasks (file creation, testing, commits)
+**Every session:**
+1. Pull latest changes (CRITICAL first step)
+2. Check for handoff files (NEXT_SESSION_START.md, SESSION_SUMMARY_*.md) - read if exist
+3. Check for project-specific AI guidelines (if exist) - they take precedence
+4. Check open issues and git status
+5. Wait for PM to assign task
 
 ---
 
-## 🏗 Project Quick Facts
+## Session Startup - Mobile (5% use case)
+
+Check `[MOBILE]` issues (label: `mobile-task`). Work in issue thread: post findings as comments, update label to `mobile-done-pc-todo` when done. ✅ Can: Read issues, comment, analyze images | ❌ Cannot: File ops, git, terminal.
+
+---
+
+## Essential Rules
+
+### Commits
+
+| Format | Example |
+|--------|---------|
+| `<type>(#issue): description` | `feat(#123): Add feature X` |
+
+Types: `feat`, `fix`, `docs`, `refactor`, `test`, `chore`
+**Always reference issue number.**
+
+### GitHub = Source of Truth
+
+All decisions, tasks, progress → GitHub Issues or docs.
+Update docs in same session as code changes.
+
+### Issue Size Management
+
+| Size | Time | Action |
+|------|------|--------|
+| ✅ Small | 1-4h | Ideal |
+| ⚠️ Medium | 4-6h | Monitor context |
+| ❌ Large | >6h | **STOP. Alert PM. Propose split.** |
+
+**If issue >6h**: Stop immediately, alert PM with split proposal, wait for approval.
+
+### Context Monitoring
+
+During work:
+- 60% (120K) → Warn PM: "Context at 60%, estimate X% more needed"
+- 80% (160K) → Start wrapping up
+- 90% (180K) → Urgent closure
+
+### Quality Checklist
+
+Before closing any issue:
+- [ ] Code tested, all tests pass
+- [ ] Docs updated (if applicable)
+- [ ] Diff reviewed by PM
+- [ ] Commit approved by PM
+
+---
+
+## Project Quick Facts
 
 | What | Details |
 |------|---------|
 | **Project** | [PROJECT_NAME] |
 | **Description** | [PROJECT_DESCRIPTION] |
-| **Architecture** | [ARCHITECTURE_SUMMARY] |
 | **Tech Stack** | [TECH_STACK] |
 | **Phase** | [CURRENT_PHASE] |
-| **Issues** | [Check GitHub Issues] |
 | **Workflow** | Human-led, AI-assisted, approval-based |
 
 ---
 
-## 🔍 Quick Reference - Where to Find Things
+## When Stuck
 
-| Need | Location |
-|------|----------|
-| Core rules & constraints | `docs/llm-rules.md` |
-| Project overview | `README.md` |
-| System architecture | `docs/architecture.md` |
-| Workflow details | `CONTRIBUTING_TEMPLATE.md` |
-| Command reference | `docs/quick-ref.md` |
-| Mobile tasks | `gh issue list --label mobile-task` |
-| Open issues | `gh issue list` |
-| Recent changes | `git log -5` |
-| Current work | `gh issue list --label in-progress` |
+1. Check project-specific AI guidelines (if exist)
+2. Check project README and docs
+3. **Ask PM** - don't assume or decide alone
+4. Remember: You propose, human decides
 
 ---
 
-## 🚀 Ready to Start?
+## Integration Notes
 
-**Next Steps**:
-1. Read `docs/llm-rules.md` (3 min)
-2. Read `CONTRIBUTING.md` (2 min) - Understand role matrix & task filtering
-3. Run first session checklist commands above
-4. Tell PM: "Ready. I've reviewed the docs and project status. What should I work on?"
-
-**Don't**:
-- ❌ Pick an issue yourself
-- ❌ Start coding without approval
-- ❌ Make architecture decisions alone
-
-**Remember**: You propose → Human decides → You implement
+**If this file was created by framework integration**:
+- This provides general principles
+- Project-specific guidelines take precedence on specifics (PR rules, deployment, etc.)
+- Framework content was merged into existing guidelines, not replacing them
+- Existing workflow and file structure preserved
 
 ---
 
-## 💡 Pro Tips
-
-- **Context efficiency**: New sessions reload docs. Keep them concise.
-- **200K limit**: Issues must complete in single session (< 6h work).
-- **Mobile tasks**: Check `gh issue list --label mobile-task` for mobile-specific work.
-- **When stuck**: Ask PM, don't assume.
-- **Before commit**: Always show diff and wait for "yes".
-
----
-
-**Last Updated**: 2025-10-27
-**Compatibility**: All LLMs (Claude, GPT-4, Gemini, Llama, etc.)
-**Maintainer**: Human PM (not AI-editable without approval)
+**Last Updated**: 2025-10-30
+**Compatibility**: All LLMs
+**Next**: Check for project-specific AI guidelines before working

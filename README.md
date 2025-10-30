@@ -1,5 +1,8 @@
 # LLM Collaboration Framework
 
+> **For**: Human developers evaluating/setting up this framework
+> **Not for AI**: AI assistants should read `START_HERE_AI.md` instead
+>
 > **Universal template for multi-agent, human-led AI collaboration in software projects**
 >
 > Works with any LLM: Claude, GPT-4, Gemini, Llama, etc.
