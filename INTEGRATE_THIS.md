@@ -164,6 +164,23 @@ Result: Single cohesive guide ✅
 
 ---
 
+---
+
+## Optional Enhancement: Skills Automation
+
+**What**: Automate session startup (git pull, read guidelines, check handoffs)
+
+**Ask PM**: "Should I add skill automation?"
+
+**Structure**:
+```
+project/.claude/
+├── <existing AI guidelines file>
+└── skills/project-onboarding/SKILL.md
+```
+
+---
+
 ## Integration Checklist
 
 - [ ] Read all existing AI guidelines first
@@ -176,6 +193,7 @@ Result: Single cohesive guide ✅
 - [ ] Verified as new AI reading docs
 - [ ] File count minimized
 - [ ] PM reviewed result
+- [ ] (Optional) Asked PM about skill automation
 
 ---
 
