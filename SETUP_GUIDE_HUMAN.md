@@ -413,7 +413,7 @@ After setup:
 
 - **v1.2** (2025-10-29): Claude Skills enhancement
   - Added `.claude/skills/` template (optional)
-  - Updated SETUP_GUIDE.md with Skills section
+  - Updated SETUP_GUIDE_HUMAN.md with Skills section
   - Compressed session templates (75-84% token reduction)
   - Skills = enhancement, not dependency
 - **v1.1** (2025-10-27): Issue-based mobile workflow
