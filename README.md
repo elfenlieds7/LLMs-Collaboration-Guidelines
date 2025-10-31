@@ -3,7 +3,7 @@
 > **For**: Human developers evaluating/setting up this framework
 > **Not for AI**: AI assistants should read `START_HERE_AI.md` instead
 >
-> **Universal template for multi-agent, human-led AI collaboration in software projects**
+> **Universal framework for multi-agent, human-led AI collaboration in software projects**
 >
 > Works with any LLM: Claude, GPT-4, Gemini, Llama, etc.
 
@@ -11,73 +11,65 @@
 
 ## 🎯 What Is This?
 
-A complete, production-tested framework for collaborating with AI assistants on software projects where:
+A complete framework for collaborating with AI assistants on software projects where:
 
 - ✅ **Human is PM** - You decide, AI proposes and implements
 - ✅ **Multi-agent** - Coordinate multiple AI tools (Mobile + PC)
-- ✅ **Context-efficient** - Tiered docs save tokens, 5-min onboarding
-- ✅ **Issue-driven** - All work < 6h (fits 200K context)
+- ✅ **Tiered docs** - AI onboards in 5 minutes via structured reading
+- ✅ **AI-driven integration** - AI merges framework into your existing docs
+- ✅ **Context-efficient** - Token-conscious, all work < 6h
 - ✅ **LLM-agnostic** - Works with any AI assistant
 
-**Proven in production** through the POE2 Craft Advisor project.
+**Proven in production** through POE2 Craft Advisor (greenfield) and Nexus (integration).
 
 ---
 
 ## 📦 What's Included
 
 ```
-llm-collaboration-template/
-├── README.md                 ← You are here
-├── SETUP_GUIDE.md           ← Detailed setup instructions
-├── START_HERE_AI.md         ← Universal LLM entry point
-├── CONTRIBUTING_TEMPLATE.md ← Workflow documentation
-├── .claude/skills/          ← Claude Skills (optional)
-│   └── multi-agent-onboarding/
-│       └── SKILL.md         ← Session automation template
-├── templates/
-│   └── ISSUE_TEMPLATE_mobile.md  ← Mobile task issue template
-├── README_AI_SECTION.md     ← Template for your README
-└── docs/
-    ├── llm-rules.md         ← Complete AI rules
-    └── quick-ref.md         ← Command reference
+LLMs-Collaboration-Guidelines/
+├── README.md                 ← You are here (human-facing)
+├── START_HERE_AI.md          ← AI entry point (all principles)
+├── INTEGRATE_THIS.md         ← AI integration guide
+├── CONTRIBUTING.md           ← Framework contribution guidelines
+├── .claude/skills/           ← Optional Claude Code automation
+│   └── multi-agent-onboarding/SKILL.md
+└── examples/integrations/    ← Real integration case studies
+    ├── README.md
+    ├── MERGE_EXPERIENCE_nexus.md
+    └── CONTRIBUTING_INTEGRATED.md
 ```
 
 ---
 
 ## ⚡ Quick Start
 
-### For New Projects
+### AI-Driven Integration
 
-```bash
-# 1. Copy templates to your project
-cp -r llm-collaboration-template/* YOUR_PROJECT/
+**Tell your AI:**
 
-# 2. Replace placeholders (see SETUP_GUIDE.md)
-[PROJECT_NAME], [AI_TOOL_1], [AI_TOOL_2], etc.
+**For new projects:**
+```
+"Integrate this framework: https://github.com/elfenlieds7/LLMs-Collaboration-Guidelines
 
-# 3. Add AI Onboarding section to README
-# (Copy from README_AI_SECTION.md)
-
-# 4. Tell your AI assistant
-"Read START_HERE_AI.md"
+Copy START_HERE_AI.md and customize placeholders for my project."
 ```
 
-**Time**: 15-20 minutes
+**For existing projects with AI guidelines:**
+```
+"Integrate this framework: https://github.com/elfenlieds7/LLMs-Collaboration-Guidelines
 
-### For Existing Projects
-
-```bash
-# 1. Copy templates
-cp llm-collaboration-template/START_HERE_AI.md YOUR_PROJECT/
-cp llm-collaboration-template/CONTRIBUTING_TEMPLATE.md YOUR_PROJECT/
-cp -r llm-collaboration-template/docs YOUR_PROJECT/
-# Note: MOBILE_UPDATES.md deprecated - use issue-based workflow instead
-
-# 2. Customize placeholders
-# 3. Integrate into your workflow
+Read INTEGRATE_THIS.md and merge framework principles into my existing guidelines.
+Preserve 100% of existing structure. Ask me before making changes."
 ```
 
-**See**: `SETUP_GUIDE.md` for complete instructions
+**AI will:**
+1. Read your existing guidelines (`.claude/CLAUDE.md`, `CONTRIBUTING.md`, etc.)
+2. Propose integration plan
+3. Merge framework principles into existing files (not create parallel structure)
+4. Ask you to approve before committing
+
+**Result**: Framework principles integrated while preserving your project's existing structure.
 
 ---
 
@@ -85,30 +77,69 @@ cp -r llm-collaboration-template/docs YOUR_PROJECT/
 
 ### 1. Tiered Documentation Strategy
 
-**🔴 Tier 0** - START NOW (2 min)
-- `START_HERE_AI.md` - Universal entry point
+**🔴 Tier 0** - START NOW (5 min)
+- `START_HERE_AI.md` - Universal entry point, all core principles
 
-**🟡 Tier 1** - BEFORE WORKING (3 min)
-- `docs/llm-rules.md` - Core rules
+**🟡 Tier 1** - BEFORE WORKING (5 min)
+- Project-specific AI guidelines (if exist) - they take precedence
 
 **🟢 Tier 2** - AS NEEDED (reference)
-- `README.md`, `docs/architecture.md`, `docs/quick-ref.md`, `CONTRIBUTING_TEMPLATE.md`
+- Project README, architecture docs, technical details
 
 **⚪ Tier 3** - SKIP (human-only)
-- Deployment scripts, credentials, etc.
+- Deployment scripts, credentials, human operational guides
 
-**Result**: AI onboards in 5 minutes instead of 30+
+**Result**: AI onboards in 5 minutes instead of 30+, reads only what's needed
 
-### 2. 200K Context Management
+### 2. Multi-Agent Coordination
+
+**Desktop/PC AI (95% use case)**:
+- Primary development work
+- Code implementation, testing, commits
+- Issue management and documentation
+
+**Mobile AI (5% use case)**:
+- Design discussions on-the-go
+- Issue analysis and research
+- Mobile app testing and screenshots
+- Work in issue thread for full traceability
+
+**Workflow**:
+```
+Human (PM) creates [MOBILE] issue with context
+   ↓
+Mobile AI: Reads issue → Works → Posts findings as comment
+   ↓
+Desktop AI: Reads findings → Implements → Closes issue
+```
+
+**Benefits**:
+- Single source of truth (issue thread)
+- Full traceability
+- Native GitHub integration
+- Simple coordination
+
+### 3. AI-Driven Integration (Not Template Copying)
+
+**Philosophy**: Framework merges into your existing docs, doesn't replace them.
+
+**Example** (Nexus integration):
+```
+Before: .claude/CLAUDE.md (51 lines, PR rules + deploy)
+After:  .claude/CLAUDE.md (67 lines, added AI workflow section)
+Result: Single cohesive guide, existing rules preserved
+```
+
+### 4. 200K Context Management
 
 - All issues must complete in single session
 - Issues limited to < 6h work
 - AI alerts when issues too large
-- Automatic context monitoring
+- Automatic context monitoring during work
 
 **Result**: No lost context, complete work units
 
-### 3. Clear Authority Structure
+### 5. Clear Authority Structure
 
 ```
 Human (PM)
@@ -123,140 +154,75 @@ AI (Assistant)
 
 **Result**: Human maintains control, AI accelerates work
 
-### 4. Mobile ↔ PC Collaboration (Issue-Based)
+### 6. Session Handoff Protocol
+
+**Files**:
+- `NEXT_SESSION_START.md` - Quick context for next AI
+- `SESSION_SUMMARY_*.md` - Detailed history
 
 **Workflow**:
 ```
-PC: Creates [MOBILE] issue with complete context + template
-   ↓
-Mobile: Reads issue (GitHub mobile app) → Works on task
-   ↓
-Mobile: Posts findings as issue comment
-   ↓
-PC: Reads comment → Implements technical work → Closes issue
-```
-
-**Benefits**:
-- ✅ Single source of truth (issue thread)
-- ✅ Full traceability (history in one place)
-- ✅ Native GitHub integration
-- ✅ No separate sync files needed
-
-**Result**: Simple, traceable multi-agent collaboration
-
-### 5. Session Handoff Protocol
-
-**Problem**: Context window limits and session interruptions cause lost context
-
-**Solution**: Standardized handoff files between AI sessions
-```
 Session 1 (AI-Alpha):
-- Creates NEXT_SESSION_START.md
-- Creates SESSION_SUMMARY_YYYY-MM-DD.md
-- Commits handoff files
+- Creates handoff files
+- Commits before session ends
 
 Session 2 (AI-Beta):
-- Checks for handoff files (automatic in START_HERE_AI.md)
-- Reads context from previous session
-- Suggests continuing previous work
-- Ready in < 5 minutes
+- Checks for handoff files (automatic)
+- Reads previous context
+- Continues work seamlessly
 ```
 
-**Files**:
-- `NEXT_SESSION_START.md` - Quick-start for next AI (commands, context, next steps)
-- `SESSION_SUMMARY_*.md` - Detailed history (decisions, files, tests, issues)
-
 **Benefits**:
-- ✅ Zero context lost between sessions
-- ✅ 30-50% reduction in re-analysis time
-- ✅ Works with any AI model (Claude, GPT-4, Gemini)
-- ✅ Simple (just 2 markdown files, no infrastructure)
+- Zero context lost between sessions
+- Works across different AI models
+- Simple markdown files, no infrastructure
 
-**Templates**: See `.github/TEMPLATES/`
+### 7. Claude Skills Enhancement (Optional)
 
-**Result**: Seamless continuity across sessions and AI models
+**For Claude Code users** - Automates session startup:
+- Auto `git pull`
+- Auto-reads project AI guidelines
+- Auto-checks handoff files
+- Add to `.claude/skills/project-onboarding/`
 
-### 6. Claude Skills Enhancement (Optional)
-
-**For Claude Code users only** - Automates repetitive tasks
-
-**What it does**:
-- Auto-runs `git pull` on session start
-- Auto-reads START_HERE_AI.md
-- Auto-checks for session handoffs
-- Reduces "start" to single word vs step-by-step
-
-**Implementation**:
-- Template included: `.claude/skills/multi-agent-onboarding/`
-- Copy to your project (if using Claude Code Pro)
-- Other AIs unaffected (use START_HERE_AI.md as before)
-
-**Architecture**: Skills = Enhancement, not dependency
-
-**Design Principle: Where to Put Tools/Scripts**
-
-This framework introduces a clear guideline for organizing independent tools:
-
-| Type | Location | Reason |
-|------|----------|--------|
-| **Application Modules** | `src/` | Imported by app code |
-| **Independent Scripts** | `.claude/skills/project-tools/` | Standalone executables |
-| **One-time Analysis** | `scripts/` | Exploration/debugging |
-
-**Examples**:
-- ✅ `update_schema.py` → `.claude/skills/` (standalone script)
-- ✅ `FilterValidator` class → `src/` (imported module)
-- ✅ `analyze_performance.py` → `scripts/` (one-time use)
-
-**Benefits**:
-- Clear separation of concerns
-- Claude Code users get tool guidance automatically
-- Other AIs can read `.claude/skills/*/SKILL.md` for tool reference
-- Scripts with usage docs in one place
-
-**See**: `SETUP_GUIDE.md` for conversion guidelines
-
-**Result**: Claude users get streamlined experience, other AIs unchanged
+**Architecture**: Skills complement guidelines, don't replace them. Other AIs use START_HERE_AI.md as before.
 
 ---
 
 ## 💡 Use Cases
 
 ### Solo Developer
-- Use single AI tool (skip mobile sync)
+- Use single AI tool or coordinate multiple AIs
 - Fast onboarding for new AI sessions
 - Structured workflow prevents AI "taking over"
 
-### Small Team (2-5)
-- Multiple team members use same framework
-- Consistent AI behavior across team
-- Easy to onboard new members
+### Existing Project with AI Guidelines
+- Framework merges into existing docs
+- Preserves your conventions 100%
+- Example: Nexus (added 16 lines to existing CLAUDE.md)
 
-### Large Team (5+)
-- Standardized AI collaboration
-- Clear roles and boundaries
-- Scalable across multiple projects
+### New Project (Greenfield)
+- Copy START_HERE_AI.md as base
+- Customize project info
+- Example: POE2 Craft Advisor
 
 ### Multi-AI Setup
 - Different AIs for different tasks (design vs implementation)
-- Coordinated through human PM
-- Synced via GitHub issue threads (issue-based workflow)
+- Desktop + Mobile coordination
+- Synced through GitHub issues
 
 ---
 
 ## 🏆 Example Projects
 
-Projects successfully using this framework:
-
 ### [POE2 Craft Advisor](https://github.com/elfenlieds7/poe2-craft-advisor)
 **Description**: AI-powered crafting advisor for Path of Exile 2
 - **Stack**: Python, LangGraph, PostgreSQL, Vector DB
 - **AI Tools**: Claude Mobile (design) + Claude Code (implementation)
-- **Scale**: ~36 GitHub issues, multi-phase development
-- **Results**: Structured multi-agent collaboration, efficient context usage
+- **Integration Type**: Greenfield project built with framework from start
 
 **Key benefits realized**:
-- 5-min AI onboarding vs previous ad-hoc approach
+- 5-min AI onboarding vs ad-hoc approach
 - Clean separation between design discussions and implementation
 - All work tracked in < 6h issues
 - Successful mobile ↔ PC sync workflow
@@ -272,30 +238,14 @@ Projects successfully using this framework:
 
 **Key validation**:
 - Successfully integrated into project with established conventions
-- Preserved all existing documentation and workflows
-- Real-world validation of framework's integration approach
+- Preserved all existing documentation and workflows (100%)
+- Real-world validation of destination-first integration philosophy
 
 ---
 
 ### Your Project Here
 
-**Using this framework?** [Submit a PR](https://github.com/elfenlieds7/llms-collaboration-guidelines/pulls) to add your project!
-
-**Include**:
-- Project name and GitHub link
-- Brief description
-- Tech stack
-- Which AI tools you're using
-- Key results or benefits
-
----
-
-## 📊 Comparison
-
-| Approach | Onboarding | Control | Context Mgmt | Multi-AI |
-|----------|-----------|---------|--------------|----------|
-| **No framework** | 30+ min | Low | Manual | Hard |
-| **This framework** | 5 min | High | Automatic | Easy |
+**Using this framework?** [Submit a PR](https://github.com/elfenlieds7/LLMs-Collaboration-Guidelines/pulls) to add your project!
 
 ---
 
@@ -304,16 +254,30 @@ Projects successfully using this framework:
 ### Core Principles
 
 1. **Human-Led**: AI assists, human decides
-2. **Context-Conscious**: Every word costs tokens
-3. **Issue-Driven**: All work tracked in GitHub
-4. **Test-First**: No untested code
-5. **Proposal-Based**: AI proposes, human approves
+2. **Multi-Agent**: Coordinate multiple AI tools through human PM
+3. **Tiered Reading**: AI reads only what's needed (5-min onboarding)
+4. **Destination-First**: Read existing guidelines, merge minimally (don't replace)
+5. **Context-Conscious**: Every word costs tokens
+6. **Issue-Driven**: All work tracked in GitHub
+7. **Test-First**: No untested code
 
 ### Why This Works
 
-- **For Humans**: Maintains control while getting AI acceleration
-- **For AIs**: Clear rules prevent confusion and mistakes
-- **For Projects**: Structured, trackable, maintainable
+**For Humans**:
+- Maintains control while getting AI acceleration
+- Existing project structure preserved
+- Easy multi-agent coordination
+
+**For AIs**:
+- Clear rules prevent confusion
+- Tiered reading saves tokens
+- Existing guidelines take precedence
+- Framework provides missing pieces only
+
+**For Projects**:
+- Structured, trackable, maintainable
+- Easy integration
+- Scalable across team and AIs
 
 ---
 
@@ -324,19 +288,20 @@ Projects successfully using this framework:
 - ✅ Claude 3.5 Sonnet (Anthropic)
 - ✅ Claude Code (Anthropic)
 - ✅ GPT-4 (OpenAI)
+- ✅ GitHub Mobile Copilot (for mobile AI collaboration)
 
 ### Should Work With
 
 - 🔲 Google Gemini
 - 🔲 Llama models
-- 🔲 Any LLM with function calling
+- 🔲 Any LLM with file read/write capability
 
 ### Requirements
 
 - GitHub repository
-- GitHub CLI (`gh`)
 - Git
 - AI assistant with file read/write capability
+- (Optional) GitHub CLI (`gh`) for issue management
 
 ---
 
@@ -344,43 +309,48 @@ Projects successfully using this framework:
 
 | Document | Purpose | Audience |
 |----------|---------|----------|
-| `README.md` (this) | Overview | Everyone |
-| `SETUP_GUIDE.md` | Detailed setup | Humans setting up |
-| `START_HERE_AI.md` | Entry point | AI assistants |
-| `docs/llm-rules.md` | Complete rules | AI assistants |
-| `docs/quick-ref.md` | Commands | AI during work |
-| `CONTRIBUTING_TEMPLATE.md` | Workflow | Humans & AI |
-| `.github/ISSUE_TEMPLATE/` | Issue templates | Humans & AI |
-| `README_AI_SECTION.md` | README template | Humans setting up |
+| `README.md` (this) | Overview & philosophy | Humans evaluating framework |
+| `START_HERE_AI.md` | All principles and rules | AI assistants |
+| `INTEGRATE_THIS.md` | Integration process | AI performing integration |
+| `CONTRIBUTING.md` | Contribution guidelines | Humans & AI contributing to framework |
+| `.claude/skills/*/SKILL.md` | Session automation | Claude Code (optional) |
+| `examples/integrations/` | Real case studies | Everyone |
 
 ---
 
 ## 🚀 Getting Started
 
-1. **Read** this README (you are here) - 5 min
-2. **Read** `SETUP_GUIDE.md` - 10 min
-3. **Copy** templates to your project - 2 min
-4. **Customize** placeholders - 10 min
-5. **Test** with an AI assistant - 5 min
+### For Humans
 
-**Total**: ~30 minutes to fully setup
+1. **Read** this README (you are here) - 5 min
+2. **Decide** integration approach:
+   - New project: Copy START_HERE_AI.md, customize
+   - Existing project: Let AI merge into existing guidelines
+3. **Tell your AI**: "Integrate this framework: [repo URL]"
+4. **Review** AI's integration plan
+5. **Approve** and test
+
+**Total**: ~10-20 minutes
+
+### For AIs
+
+Read `START_HERE_AI.md` for all principles.
+Read `INTEGRATE_THIS.md` when performing integration.
 
 ---
 
 ## 🤝 Contributing
 
-This framework is open for contributions. To suggest improvements:
-
-1. Use it in your project
-2. Document what works / doesn't work
-3. Propose changes with reasoning
-4. Test with multiple AI tools
+See `CONTRIBUTING.md` for:
+- Documentation guidelines (avoid "lose focus" problem)
+- Code minimization rules (for Claude)
+- How to propose improvements
 
 ---
 
 ## 📝 License
 
-[Specify your license here]
+MIT License
 
 ---
 
@@ -399,13 +369,13 @@ Developed and validated through:
 ## 📞 Support
 
 **Questions?**
-- Read `SETUP_GUIDE.md` for detailed instructions
+- Read `INTEGRATE_THIS.md` for AI integration process
 - Check existing GitHub Issues
 - Create new issue for bugs/suggestions
 
 **Want to share your experience?**
 - Create a discussion
-- Share your customizations
+- Share your integration results
 - Help improve the framework
 
 ---
@@ -418,8 +388,8 @@ After using this framework, you should see:
 - ✅ Context waste: High → Low
 - ✅ AI "overstepping": Frequent → Rare
 - ✅ Issue completion: Often incomplete → Consistently complete
-- ✅ Team consistency: Varies → Standardized
-- ✅ Onboarding new AI tools: Hard → Easy
+- ✅ Multi-agent coordination: Hard → Easy
+- ✅ Integration: Manual copying → AI-driven
 
 ---
 
@@ -427,4 +397,4 @@ After using this framework, you should see:
 **Last Updated**: 2025-10-30
 **Status**: Production-ready
 
-**Start now**: Read `SETUP_GUIDE.md`
+**Start now**: Tell your AI to integrate this framework!
