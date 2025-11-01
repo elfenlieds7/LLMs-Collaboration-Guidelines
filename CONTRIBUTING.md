@@ -78,6 +78,25 @@ We welcome:
 - **One example max**: Per concept
 - **Keep placeholders**: Like `[PROJECT_NAME]`, `[AI_TOOL_1]`
 
+#### Avoid "Lose Focus" Problem
+
+**Problem**: Too much content → AI loses focus on what's important
+
+**When writing/updating docs**:
+1. Ask PM: "What's the target length? What must be included?"
+2. Prioritize core content (95% use cases)
+3. Compress edge cases (5% use cases) to minimal form
+4. Use tables/bullets instead of paragraphs
+5. Remove examples unless critical
+
+**Bottom line**: Before writing, check with PM about length/focus concerns.
+
+#### Code in Documentation
+
+**Rule**: When writing docs, minimize code examples. Only use code when genuinely clearer than prose.
+
+**Applies to**: Claude (tends to overuse code blocks in descriptions).
+
 ### For Templates
 
 - **Maintain structure**: Don't break the tiered approach (🔴🟡🟢⚪)
