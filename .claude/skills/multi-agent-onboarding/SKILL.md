@@ -43,16 +43,20 @@ Read `START_HERE_AI.md` in repo root to understand:
 
 ### Step 3: Check for Session Handoff
 
-Look for these files in repo root:
-- `NEXT_SESSION_START.md` - Quick start guide from previous session
-- `SESSION_SUMMARY_*.md` (< 7 days old) - Detailed session history
+**Issue-based workflow** (see project's CONTRIBUTING.md for handoff format):
 
-**If found**:
-1. Read `NEXT_SESSION_START.md` FIRST (highest priority)
-2. Read recent `SESSION_SUMMARY_*.md` SECOND
-3. These contain critical context from previous AI sessions
+1. Check for in-progress issues:
+   ```bash
+   gh issue list --label in-progress --limit 5
+   ```
 
-**If not found**: Proceed to next step.
+2. Read issue comments for "🔄 Session Handoff" marker:
+   ```bash
+   gh issue view <number> --comments
+   ```
+
+**If found**: Read the handoff, suggest continuing to PM
+**If not found**: Proceed to next step
 
 ### Step 4: Read Project-Specific Docs
 

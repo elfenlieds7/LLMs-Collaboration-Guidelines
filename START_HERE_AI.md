@@ -93,13 +93,13 @@ When starting a new session:
 1. ✅ Read this file (done)
 2. 🔍 **Check for Previous Session Handoff**:
    ```bash
-   # Check if there's a session handoff from previous AI
-   ls -la NEXT_SESSION_START.md SESSION_SUMMARY_*.md 2>/dev/null
+   # Check for in-progress issues with session handoffs
+   gh issue list --label in-progress
    ```
-   - If `NEXT_SESSION_START.md` exists → **Read it FIRST** (priority over everything)
-   - If recent `SESSION_SUMMARY_*.md` exists (< 7 days) → **Read it SECOND**
-   - These files contain critical context from previous session
+   - Read latest comments for "🔄 Session Handoff" marker
+   - If found → **Read the handoff** (contains critical context)
    - **Suggest continuing previous work** unless PM says otherwise
+   - See project's CONTRIBUTING.md for handoff format
 3. ✅ Check status:
    ```bash
    gh issue list --state open --limit 5
