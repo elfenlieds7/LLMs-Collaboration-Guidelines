@@ -61,14 +61,10 @@ PM: "Yes" → You: Commit
 
 **Every session:**
 1. Pull latest changes (CRITICAL first step)
-2. Check for in-progress issues (`gh issue list --label in-progress`) - read comments for "🔄 Session Handoff" marker
-3. Check recently updated issues to find session handoff info:
-   ```bash
-   gh issue list --limit 20 --state open --json number,title,updatedAt --jq '.[] | "\(.number)\t\(.title)\t\(.updatedAt)"' | head -10
-   ```
-4. Check for project-specific AI guidelines (if exist) - they take precedence
-5. Check open issues and git status
-6. Wait for PM to assign task
+2. Find session handoff: Check top 10 recently updated issues (show number, time, title, labels). Read latest comments for "🔄 Session Handoff" marker. Prioritize `in-progress` labeled issues.
+3. Check for project-specific AI guidelines (if exist) - they take precedence
+4. Check git status
+5. Wait for PM to assign task
 
 ---
 
