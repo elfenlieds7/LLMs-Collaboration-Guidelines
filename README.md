@@ -156,33 +156,33 @@ AI (Assistant)
 
 ### 6. Session Handoff Protocol
 
-**Files**:
-- `NEXT_SESSION_START.md` - Quick context for next AI
-- `SESSION_SUMMARY_*.md` - Detailed history
+**Method**: GitHub Issues & Discussions
 
 **Workflow**:
 ```
 Session 1 (AI-Alpha):
-- Creates handoff files
-- Commits before session ends
+- Posts "🔄 Session Handoff" comment in active issue
+- Includes: progress, blockers, next steps
+- Updates issue labels (in-progress, needs-review, etc.)
 
 Session 2 (AI-Beta):
-- Checks for handoff files (automatic)
-- Reads previous context
+- Checks recent issues for handoffs (automatic)
+- Reads issue comments for context
 - Continues work seamlessly
 ```
 
 **Benefits**:
 - Zero context lost between sessions
 - Works across different AI models
-- Simple markdown files, no infrastructure
+- Native GitHub integration, no extra files
+- Full traceability in issue history
 
 ### 7. Claude Skills Enhancement (Optional)
 
 **For Claude Code users** - Automates session startup:
 - Auto `git pull`
 - Auto-reads project AI guidelines
-- Auto-checks handoff files
+- Auto-checks GitHub issues for handoffs
 - Add to `.claude/skills/project-onboarding/`
 
 **Architecture**: Skills complement guidelines, don't replace them. Other AIs use START_HERE_AI.md as before.

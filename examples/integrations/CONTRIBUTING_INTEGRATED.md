@@ -66,13 +66,15 @@ source .venv/bin/activate  # On Windows: .venv\Scripts\activate
 
 **When**: Context >80%, work interrupted, session ends with incomplete tasks
 
-**Required files**:
-- `NEXT_SESSION_START.md` - Quick-start for next AI (completed, next steps, verification commands)
-- `SESSION_SUMMARY_YYYY-MM-DD.md` - Full session history
+**Method**: GitHub Issues
 
-**Process**: Check `git status` → commit work → commit handoff files → push → notify PM
+**Process**:
+1. Post "🔄 Session Handoff" comment in active issue
+2. Include: what's completed, blockers, next steps, verification commands
+3. Update issue labels (in-progress, blocked, etc.)
+4. Commit current work → push → notify PM
 
-**Details**: See [Session Handoff](docs/llm-rules.md#session-handoff-protocol) in llm-rules.md
+**Next AI**: Checks recent issues for handoff markers, reads comments for context
 
 ### Issue Size Management
 

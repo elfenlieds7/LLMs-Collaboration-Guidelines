@@ -263,7 +263,7 @@ Format: `<type>(#issue): description`
 **Problem**: AI collaboration sections in template are too detailed:
 - Role definitions list every permission redundantly
 - Workflow examples include full dialogue snippets
-- Session handoff shows complete file templates
+- Session handoff protocol needs to use GitHub issues
 - Code examples are verbose
 
 **Current token cost**: ~200-250 lines for AI collaboration sections
@@ -271,7 +271,7 @@ Format: `<type>(#issue): description`
 **Proposed changes**:
 1. **Roles**: Use bullet lists instead of separate paragraphs
 2. **Workflow**: Remove dialogue examples, keep numbered steps only
-3. **Session Handoff**: Link to templates instead of embedding full content
+3. **Session Handoff**: Use GitHub issues instead of local files
 4. **Code blocks**: Keep only essential commands
 
 **Target**: Reduce AI sections by 30-40% (~140-170 lines instead of 200-250)

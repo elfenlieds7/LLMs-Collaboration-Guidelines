@@ -86,7 +86,7 @@ Output format:
 ```
 ✅ Pulled to: [commit hash]
 ✅ START_HERE_AI.md: Read
-✅ Handoff: [Found NEXT_SESSION_START.md / Not found]
+✅ Handoff: [Found in issue #X / Not found]
 ✅ Project docs: [List what was read]
 ✅ Open issues: [count]
 ⏸ Ready for task assignment
