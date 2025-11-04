@@ -3,7 +3,10 @@
 > **For**: AI assistants integrating this framework into existing projects
 > **Purpose**: AI-driven integration process with minimal disruption
 >
-> **IMPORTANT**: This file is an integration guide. **DO NOT copy this file to destination projects.**
+> **IMPORTANT**:
+> - This file is an integration guide. **DO NOT copy to destination projects.**
+> - `examples/` contains case studies for reference. **DO NOT copy to destination projects.**
+> - Framework's `README.md` is for this repo. **DO NOT copy to destination projects.**
 
 ---
 
